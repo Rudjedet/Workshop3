@@ -26,6 +26,11 @@
             <artifactId>primefaces</artifactId>  
             <version>6.0</version>  
         </dependency>
+        <dependency>
+            <groupId>org.glassfish.embedded</groupId>
+            <artifactId>maven-embedded-glassfish-plugin</artifactId>
+            <version>4.1.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -75,6 +80,10 @@
                     </execution>
                 </executions>
             </plugin>
+<!--        <plugin>
+                <groupId>org.glassfish</groupId>
+                <version>4.1.1</version>
+            </plugin>-->
         </plugins>
     </build>
 
