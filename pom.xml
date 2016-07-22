@@ -80,10 +80,6 @@
                     </execution>
                 </executions>
             </plugin>
-<!--        <plugin>
-                <groupId>org.glassfish</groupId>
-                <version>4.1.1</version>
-            </plugin>-->
         </plugins>
     </build>
 
