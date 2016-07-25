@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
@@ -7,18 +9,20 @@
         <title>De Mummiefabriek</title>
     </h:head>
     <h:body>
+        
         <div id="header">
             <span class="MummieFabriekTekst">De Mummiefabriek</span>
         </div>
 
         <div id="indexIntroductieLinks">
             <h1>Welkom bij de Mummiefabriek!</h1>
-
-            Klik <h:link outcome="welcomePrimefaces" value="hier" />  om naar de webshop te gaan.
         </div>
 
         <div id="indexInhoudMidden">
-            [ content ]
+            
+            <h:link outcome="welcomePrimefaces"> 
+                <h:graphicImage value="/img/shop banner.png" />
+            </h:link>
         </div>
 
         <div id="footer">
