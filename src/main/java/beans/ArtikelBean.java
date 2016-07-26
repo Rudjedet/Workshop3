@@ -5,6 +5,8 @@
  */
 package beans;
 
+import entity.Artikel;
+import entity.Bestelling;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
@@ -19,4 +21,27 @@ import javax.inject.Named;
 @Named
 public class ArtikelBean {
     
+     private Artikel artikel;
+     private Bestelling bestelling;
+     
+     public ArtikelBean() {
+         artikel = new Artikel();
+         bestelling = new Bestelling();
+     }
+
+    public Artikel getArtikel() {
+        return artikel;
+    }
+
+    public void setArtikel(Artikel artikel) {
+        this.artikel = artikel;
+    }
+
+    public Bestelling getBestelling() {
+        return bestelling;
+    }
+
+    public void setBestelling(Bestelling bestelling) {
+        this.bestelling = bestelling;
+    }
 }

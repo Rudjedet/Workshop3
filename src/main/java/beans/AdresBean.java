@@ -5,6 +5,9 @@
  */
 package beans;
 
+import entity.Adres;
+import entity.AdresType;
+import entity.Klant;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
@@ -19,4 +22,39 @@ import javax.inject.Named;
 @Named
 public class AdresBean {
     
+    private Adres adres;
+    private AdresType adresType;
+    private Klant klant;
+    
+    public AdresBean() {
+        adres = new Adres();
+        adresType = new AdresType();
+        klant = new Klant();
+    }
+
+    public Adres getAdres() {
+        return adres;
+    }
+
+    public void setAdres(Adres adres) {
+        this.adres = adres;
+    }
+
+    public AdresType getAdresType() {
+        return adresType;
+    }
+
+    public void setAdresType(AdresType adresType) {
+        this.adresType = adresType;
+    }
+
+    public Klant getKlant() {
+        return klant;
+    }
+
+    public void setKlant(Klant klant) {
+        this.klant = klant;
+    }
 }
+  
+

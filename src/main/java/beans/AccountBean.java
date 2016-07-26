@@ -5,6 +5,8 @@
  */
 package beans;
 
+import entity.Account;
+import entity.Klant;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
@@ -19,4 +21,27 @@ import javax.inject.Named;
 @Named
 public class AccountBean {
     
+    private Account account;
+    private Klant klant;
+    
+    public AccountBean() {
+        account = new Account();
+        klant = new Klant();
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Klant getKlant() {
+        return klant;
+    }
+
+    public void setKlant(Klant klant) {
+        this.klant = klant;
+    }
 }
