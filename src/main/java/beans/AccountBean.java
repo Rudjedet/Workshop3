@@ -5,10 +5,18 @@
  */
 package beans;
 
+import javax.ejb.Stateless;
+import javax.enterprise.context.Dependent;
+import javax.inject.Named;
+
 /**
  *
  * @author Sonja
  */
+
+@Stateless
+@Dependent
+@Named
 public class AccountBean {
     
 }
