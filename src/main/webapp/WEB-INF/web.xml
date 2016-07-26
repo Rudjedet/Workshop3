@@ -7,6 +7,10 @@
         <param-name>imagePath</param-name>
         <param-value>img/</param-value>
     </context-param>
+    <context-param>
+        <param-name>productImagePath</param-name>
+        <param-value>img/producten/</param-value>
+    </context-param>
     <servlet>
         <servlet-name>ControllerServlet</servlet-name>
         <servlet-class>controller.ControllerServlet</servlet-class>
