@@ -3,7 +3,8 @@
 
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
 <!--index.jsp voor primefaces-->
 
@@ -33,8 +34,32 @@
 
         <div id="indexInhoudMidden">
             [ productenlijst ] <!--voor test, later inlogscherm-->
+            <br />
+            <table id="productTable">
+
+                <c:forEach var="artikel" items="${artikelen}" varStatus="iter">
+
+                    <tr class="${((iter.index % 2) == 0) ? 'wood' : 'white'}">
+                        <td>
+                            <img src="${initParam.productImagePath}${artikel.artikelnaam}.png"
+                                 alt="${artikel.artikelnaam}" />
+                        </td>
+
+                        <td>
+                    ${artikel.artikelnaam}
+                            <br />
+                                <span class="smallText">${artikel.artikelnaam}</span>
+                        </td>
+
+                        <td>&euro; ${artikel.artikelprijs}</td>
+
+                    </tr>
+
+                </c:forEach>
+
+            </table>
             
-<!--        <h:link outcome="welcomePrimefaces"> 
+        <!--<h:link outcome="welcomePrimefaces"> 
                 <h:graphicImage value="/img/shop banner.png" />
             </h:link>-->
         </div>

@@ -61,7 +61,8 @@ body {
     float: right;
     margin: 20px 20px auto auto;
     background: rgba(255, 255, 255, 0.6);
-    color: antiquewhite;
+    /*color: antiquewhite;*/
+    color: darkslategrey;
     border-style: solid;
     border-width: thin;
 }
@@ -73,3 +74,34 @@ body {
     /*margin-top: auto;*/
     clear: left;
 }
+
+/*onderstaande is voor indextabel: denk aan vervangen*/
+table {
+    margin: 0 20px;
+    border-spacing: 0;
+    text-align: center;
+    border: solid 1px #f5eabe;
+}
+
+#singleColumn {
+    margin: 20px 30px;
+    text-align: left;
+}
+
+.wood { background-color: burlywood }
+
+.white { background-color: antiquewhite }
+
+.smallText { font-size: small }
+
+#productTable {
+    width: 600px;
+
+    /* styles to collaborate with rounded categoryLabel */
+    position: relative;
+    z-index: 1;
+}
+
+#productTable tr { height: 90px }
+
+#productTable td { width: 145px }
