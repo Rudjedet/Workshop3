@@ -93,6 +93,7 @@ REGISTREREN.JSP
 	* Invoeren: NAW gegevens
 	* Kiezen: accountnaam
 	* Kiezen: wachtwoord
+- Knop "Account aanmaken"
 
 INLOGGELUKT.JSP
 
