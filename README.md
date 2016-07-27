@@ -79,3 +79,27 @@ KLANTBESTELLING.JSP										  //Singleton session (unieke URL op basis van best
 	* Bestelling (aantallen + totaalprijs)
 	* Betaalwijze + betaaldatum
 	* Verzonden JA/NEE (altijd JA :P)
+	
+INLOGGEN.JSP
+
+- Inlogfunctie
+	* Invoeren: accountnaam
+	* Invoeren: wachtwoord
+	* Knop "LOG IN"
+
+REGISTREREN.JSP
+
+- Registratiefunctie
+	* Invoeren: NAW gegevens
+	* Kiezen: accountnaam
+	* Kiezen: wachtwoord
+
+INLOGGELUKT.JSP
+
+- "U bent ingelogd!"
+- Knop "Verder winkelen" -> naar pagina SHOP.JSP
+
+ERRORNOLOGIN.JSP
+
+- "U heeft nog geen account of u bent niet ingelogd in onze webshop."
+- "U dient eerst <in te loggen> [link: INLOGGEN.JSP] of een <account aan te maken> [link: REGISTREREN.JSP]"
