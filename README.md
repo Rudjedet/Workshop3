@@ -102,4 +102,4 @@ INLOGGELUKT.JSP
 ERRORNOLOGIN.JSP
 
 - "U heeft nog geen account of u bent niet ingelogd in onze webshop."
-- "U dient eerst <in te loggen> [link: INLOGGEN.JSP] of een <account aan te maken> [link: REGISTREREN.JSP]"
+- "U dient eerst <u>in te loggen</u> [link: INLOGGEN.JSP] of een <u>account aan te maken</u> [link: REGISTREREN.JSP]"
