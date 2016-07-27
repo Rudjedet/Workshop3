@@ -1,9 +1,9 @@
 <%-- 
-    Document   : winkelwagen
-    Created on : 19-jul-2016, 12:42:40
+    Document   : factuurbevestiging
+    Created on : 27-jul-2016, 11:42:57
     Author     : Sonja
 
-    Contents   : Tabel huidige artikelen winkelwagen; aantallen; totaalprijzen
+    Contents   : Factuur toebehorend aan bestelling na betaling
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

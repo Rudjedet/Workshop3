@@ -2,6 +2,8 @@
     Document   : shop
     Created on : 19-jul-2016, 12:42:28
     Author     : Sonja
+
+    Contents   : Tabel beschikbare artikelen; welkomsttekst
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,9 +1,9 @@
 <%-- 
-    Document   : winkelwagen
-    Created on : 19-jul-2016, 12:42:40
+    Document   : klantfactuur
+    Created on : 27-jul-2016, 11:44:47
     Author     : Sonja
 
-    Contents   : Tabel huidige artikelen winkelwagen; aantallen; totaalprijzen
+    Contents   : Specifieke factuur van een klant
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

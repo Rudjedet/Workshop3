@@ -1,9 +1,9 @@
 <%-- 
-    Document   : winkelwagen
-    Created on : 19-jul-2016, 12:42:40
+    Document   : inloggen
+    Created on : 27-jul-2016, 11:56:38
     Author     : Sonja
 
-    Contents   : Tabel huidige artikelen winkelwagen; aantallen; totaalprijzen
+    Contents   : Inlogfunctie
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

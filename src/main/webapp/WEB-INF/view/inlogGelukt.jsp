@@ -1,9 +1,9 @@
 <%-- 
-    Document   : winkelwagen
-    Created on : 19-jul-2016, 12:42:40
+    Document   : inlogGelukt
+    Created on : 27-jul-2016, 11:59:43
     Author     : Sonja
 
-    Contents   : Tabel huidige artikelen winkelwagen; aantallen; totaalprijzen
+    Contents   : Inloggen gelukt; doorverwijzing naar shop.jsp
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

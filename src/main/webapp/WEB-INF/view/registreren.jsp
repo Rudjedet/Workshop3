@@ -1,7 +1,9 @@
 <%-- 
-    Document   : bekijkWinkelwagen
-    Created on : 20-jul-2016, 10:49:41
+    Document   : registreren
+    Created on : 27-jul-2016, 11:56:46
     Author     : Sonja
+
+    Contents   : Registratiefunctie
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
