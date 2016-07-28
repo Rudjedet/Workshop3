@@ -7,6 +7,7 @@ package beans;
 
 import entity.Artikel;
 import entity.Bestelling;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
@@ -23,7 +24,7 @@ public class ArtikelBean {
     
      private Artikel artikel;
      private Bestelling bestelling;
-     //private List artikel;
+     private List<Artikel> artikelLijst;
      
      public ArtikelBean() {
          artikel = new Artikel();
@@ -44,5 +45,13 @@ public class ArtikelBean {
 
     public void setBestelling(Bestelling bestelling) {
         this.bestelling = bestelling;
+    }
+
+    public List<Artikel> getArtikelLijst() {
+        return artikelLijst;
+    }
+
+    public void setArtikelLijst(List<Artikel> artikelLijst) {
+        this.artikelLijst = artikelLijst;
     }
 }
