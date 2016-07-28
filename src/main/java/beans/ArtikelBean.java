@@ -23,6 +23,7 @@ public class ArtikelBean {
     
      private Artikel artikel;
      private Bestelling bestelling;
+     //private List artikel;
      
      public ArtikelBean() {
          artikel = new Artikel();
