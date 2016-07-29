@@ -42,8 +42,8 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
-        <welcome-file>index.xhtml</welcome-file>
+        <welcome-file>/faces/index.xhtml</welcome-file>
+        <welcome-file>/index.xhtml</welcome-file>
     </welcome-file-list>
     <resource-ref>
         <res-ref-name>jdbc/mummiefabriek</res-ref-name>

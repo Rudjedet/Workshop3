@@ -16,6 +16,8 @@
     <h:body>
         <p>Welkom, #{login.user}!</p>
         <h:commandLink action ="#{login.logout}" value="Logout" />
+        <!--TODO: impl. link naar shop.xhtml--> 
+        <h:link value="Ga door naar de webshop" outcome="/view/shop.xhtml" />
     </h:body>
 </html>
 
