@@ -26,10 +26,13 @@
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/shop</url-pattern>
         <url-pattern>/winkelwagen</url-pattern>
-        <url-pattern>/bekijkWinkelwagen</url-pattern>
-        <url-pattern>/voegToeAanWinkelwagen</url-pattern>
-        <url-pattern>/updateWinkelwagen</url-pattern>
-        <url-pattern>/bestellen</url-pattern>
+        <url-pattern>/account</url-pattern>
+        <url-pattern>/klantbestelling</url-pattern>
+        <url-pattern>/bestelling</url-pattern>
+        <url-pattern>/login</url-pattern>
+        <url-pattern>/registreren</url-pattern>
+        <url-pattern>/inlogGelukt</url-pattern>
+        <url-pattern>/errorNoLogin</url-pattern>
         <url-pattern>/bevestiging</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
