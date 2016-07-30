@@ -46,6 +46,8 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>/view/login.xhtml</welcome-file>
+        <welcome-file>/login.xhtml</welcome-file>
+        <welcome-file>/index.xhtml</welcome-file>
     </welcome-file-list>
     <resource-ref>
         <res-ref-name>jdbc/mummiefabriek</res-ref-name>
