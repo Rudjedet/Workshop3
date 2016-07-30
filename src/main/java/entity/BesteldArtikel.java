@@ -6,9 +6,12 @@
 package entity;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -23,15 +26,18 @@ import javax.persistence.Table;
 @Table(name = "besteld_artikel")
 @NamedQueries({
     @NamedQuery(name = "BesteldArtikel.findAll", query = "SELECT b FROM BesteldArtikel b"),
-    @NamedQuery(name = "BesteldArtikel.findByBesteldArtikelid", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelPK.besteldArtikelid = :besteldArtikelid"),
+    @NamedQuery(name = "BesteldArtikel.findByBesteldArtikelid", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.besteldArtikelId = :besteldArtikelIdd"),
     @NamedQuery(name = "BesteldArtikel.findByAantal", query = "SELECT b FROM BesteldArtikel b WHERE b.aantal = :aantal"),
-    @NamedQuery(name = "BesteldArtikel.findByBestellingIdbestelling", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelPK.bestellingIdbestelling = :bestellingIdbestelling"),
-    @NamedQuery(name = "BesteldArtikel.findByArtikelIdartikel", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelPK.artikelIdartikel = :artikelIdartikel")})
+    @NamedQuery(name = "BesteldArtikel.findByBestellingIdbestelling", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.bestellingIdbestelling = :bestellingIdbestelling"),
+    @NamedQuery(name = "BesteldArtikel.findByArtikelIdartikel", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.artikelIdartikel = :artikelIdartikel")})
 public class BesteldArtikel implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected BesteldArtikelPK besteldArtikelPK;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Basic(optional=false)
+    @Column(name = "besteld_artikelid")
+    private Integer besteldArtikelId;
     @Column(name = "aantal")
     private Integer aantal;
     @JoinColumn(name = "artikel_idartikel", referencedColumnName = "artikel_id", insertable = false, updatable = false)
@@ -44,20 +50,20 @@ public class BesteldArtikel implements Serializable {
     public BesteldArtikel() {
     }
 
-    public BesteldArtikel(BesteldArtikelPK besteldArtikelPK) {
-        this.besteldArtikelPK = besteldArtikelPK;
+    public BesteldArtikel(Integer besteldArtikelId) {
+        this.besteldArtikelId = besteldArtikelId;
     }
 
-    public BesteldArtikel(int besteldArtikelid, int bestellingIdbestelling, int artikelIdartikel) {
-        this.besteldArtikelPK = new BesteldArtikelPK(besteldArtikelid, bestellingIdbestelling, artikelIdartikel);
+//    public BesteldArtikel(int besteldArtikelid, int bestellingIdbestelling, int artikelIdartikel) {
+//        this.besteldArtikelId = new Integer(besteldArtikelid, bestellingIdbestelling, artikelIdartikel);
+//    }
+    
+    public Integer getBesteldArtikelId() {
+        return besteldArtikelId;
     }
 
-    public BesteldArtikelPK getBesteldArtikelPK() {
-        return besteldArtikelPK;
-    }
-
-    public void setBesteldArtikelPK(BesteldArtikelPK besteldArtikelPK) {
-        this.besteldArtikelPK = besteldArtikelPK;
+    public void setBesteldArtikelId(Integer besteldArtikelId) {
+        this.besteldArtikelId = besteldArtikelId;
     }
 
     public Integer getAantal() {
@@ -87,7 +93,7 @@ public class BesteldArtikel implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (besteldArtikelPK != null ? besteldArtikelPK.hashCode() : 0);
+        hash += (besteldArtikelId != null ? besteldArtikelId.hashCode() : 0);
         return hash;
     }
 
@@ -98,7 +104,7 @@ public class BesteldArtikel implements Serializable {
             return false;
         }
         BesteldArtikel other = (BesteldArtikel) object;
-        if ((this.besteldArtikelPK == null && other.besteldArtikelPK != null) || (this.besteldArtikelPK != null && !this.besteldArtikelPK.equals(other.besteldArtikelPK))) {
+        if ((this.besteldArtikelId == null && other.besteldArtikelId != null) || (this.besteldArtikelId != null && !this.besteldArtikelId.equals(other.besteldArtikelId))) {
             return false;
         }
         return true;
@@ -106,7 +112,7 @@ public class BesteldArtikel implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.BesteldArtikel[ besteldArtikelPK=" + besteldArtikelPK + " ]";
+        return "entity.BesteldArtikel[ besteldArtikelId=" + besteldArtikelId + " ]";
     }
     
 }

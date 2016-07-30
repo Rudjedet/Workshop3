@@ -6,8 +6,12 @@
 package entity;
 
 import java.io.Serializable;
-import javax.persistence.EmbeddedId;
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -22,13 +26,17 @@ import javax.persistence.Table;
 @Table(name = "klant_adres")
 @NamedQueries({
     @NamedQuery(name = "KlantAdres.findAll", query = "SELECT k FROM KlantAdres k"),
-    @NamedQuery(name = "KlantAdres.findByKlantIdklant", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresPK.klantIdklant = :klantIdklant"),
-    @NamedQuery(name = "KlantAdres.findByAdresIdadres", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresPK.adresIdadres = :adresIdadres")})
+    @NamedQuery(name = "KlantAdres.findByKlantAdresid", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId.klantAdresId = :klantAdresId"),
+    @NamedQuery(name = "KlantAdres.findByKlantIdklant", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId.klantIdklant = :klantIdklant"),
+    @NamedQuery(name = "KlantAdres.findByAdresIdadres", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId.adresIdadres = :adresIdadres")})
 public class KlantAdres implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected KlantAdresPK klantAdresPK;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Basic(optional=false)
+    @Column(name = "klant_adresid")
+    private Integer klantAdresId;
     @JoinColumn(name = "adres_idadres", referencedColumnName = "adres_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Adres adres;
@@ -42,20 +50,20 @@ public class KlantAdres implements Serializable {
     public KlantAdres() {
     }
 
-    public KlantAdres(KlantAdresPK klantAdresPK) {
-        this.klantAdresPK = klantAdresPK;
+    public KlantAdres(Integer klantAdresId) {
+        this.klantAdresId = klantAdresId;
     }
 
-    public KlantAdres(int klantIdklant, int adresIdadres) {
-        this.klantAdresPK = new KlantAdresPK(klantIdklant, adresIdadres);
+//    public KlantAdres(int klantIdklant, int adresIdadres) {
+//        this.klantAdresId = new int(klantIdklant, adresIdadres);
+//    }
+
+    public int getKlantAdresId() {
+        return klantAdresId;
     }
 
-    public KlantAdresPK getKlantAdresPK() {
-        return klantAdresPK;
-    }
-
-    public void setKlantAdresPK(KlantAdresPK klantAdresPK) {
-        this.klantAdresPK = klantAdresPK;
+    public void setKlantAdresId(int klantAdresId) {
+        this.klantAdresId = klantAdresId;
     }
 
     public Adres getAdres() {
@@ -85,7 +93,7 @@ public class KlantAdres implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (klantAdresPK != null ? klantAdresPK.hashCode() : 0);
+        hash += (klantAdresId != null ? klantAdresId.hashCode() : 0);
         return hash;
     }
 
@@ -96,7 +104,7 @@ public class KlantAdres implements Serializable {
             return false;
         }
         KlantAdres other = (KlantAdres) object;
-        if ((this.klantAdresPK == null && other.klantAdresPK != null) || (this.klantAdresPK != null && !this.klantAdresPK.equals(other.klantAdresPK))) {
+        if ((this.klantAdresId == null && other.klantAdresId != null) || (this.klantAdresId != null && !this.klantAdresId.equals(other.klantAdresId))) {
             return false;
         }
         return true;
@@ -104,7 +112,7 @@ public class KlantAdres implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.KlantAdres[ klantAdresPK=" + klantAdresPK + " ]";
+        return "entity.KlantAdres[ klantAdresId=" + klantAdresId + " ]";
     }
     
 }
