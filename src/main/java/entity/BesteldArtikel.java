@@ -24,12 +24,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "besteld_artikel")
-@NamedQueries({
-    @NamedQuery(name = "BesteldArtikel.findAll", query = "SELECT b FROM BesteldArtikel b"),
-    @NamedQuery(name = "BesteldArtikel.findByBesteldArtikelid", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.besteldArtikelId = :besteldArtikelIdd"),
-    @NamedQuery(name = "BesteldArtikel.findByAantal", query = "SELECT b FROM BesteldArtikel b WHERE b.aantal = :aantal"),
-    @NamedQuery(name = "BesteldArtikel.findByBestellingIdbestelling", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.bestellingIdbestelling = :bestellingIdbestelling"),
-    @NamedQuery(name = "BesteldArtikel.findByArtikelIdartikel", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.artikelIdartikel = :artikelIdartikel")})
+//@NamedQueries({
+//    @NamedQuery(name = "BesteldArtikel.findAll", query = "SELECT b FROM BesteldArtikel b"),
+//    @NamedQuery(name = "BesteldArtikel.findByBesteldArtikelid", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.besteldArtikelId = :besteldArtikelIdd"),
+//    @NamedQuery(name = "BesteldArtikel.findByAantal", query = "SELECT b FROM BesteldArtikel b WHERE b.aantal = :aantal"),
+//    @NamedQuery(name = "BesteldArtikel.findByBestellingIdbestelling", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.bestellingIdbestelling = :bestellingIdbestelling"),
+//    @NamedQuery(name = "BesteldArtikel.findByArtikelIdartikel", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.artikelIdartikel = :artikelIdartikel")})
 public class BesteldArtikel implements Serializable {
 
     private static final long serialVersionUID = 1L;
