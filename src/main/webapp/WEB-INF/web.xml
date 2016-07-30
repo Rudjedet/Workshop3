@@ -12,7 +12,7 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
-<!--    <servlet>
+<!--<servlet>
         <servlet-name>ControllerServlet</servlet-name>
         <servlet-class>controller.ControllerServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -22,7 +22,7 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-<!--    <servlet-mapping>
+<!--<servlet-mapping>
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/shop</url-pattern>
         <url-pattern>/winkelwagen</url-pattern>
@@ -37,7 +37,7 @@
     </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/view/*</url-pattern>
+        <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -45,10 +45,10 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>/view/login.xhtml</welcome-file>
-        <welcome-file>../../login.xhtml</welcome-file>
+        <!--<welcome-file>/faces/login.xhtml</welcome-file>-->
+        <!--<welcome-file>../../login.xhtml</welcome-file>-->
         <welcome-file>/login.xhtml</welcome-file>
-        <welcome-file>/index.xhtml</welcome-file>
+        <!--<welcome-file>/index.xhtml</welcome-file>-->
     </welcome-file-list>
     <resource-ref>
         <res-ref-name>jdbc/mummiefabriek</res-ref-name>
