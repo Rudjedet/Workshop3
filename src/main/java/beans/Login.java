@@ -10,10 +10,12 @@ import com.mysql.jdbc.PreparedStatement;
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.annotation.ManagedBean;
+//import javax.faces.bean.ManagedBean;
+//import javax.faces.context.SessionScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 import util.DataConnect;
 
@@ -22,7 +24,8 @@ import util.DataConnect;
  * @author Sonja
  */
 
-@ManagedBean
+//@ManagedBean
+@Named
 @SessionScoped
 public class Login implements Serializable {
     
@@ -80,13 +83,10 @@ public class Login implements Serializable {
     }
     
     public static boolean validate(String user, String password) {
-        //Connection con = null;
-        //PreparedStatement pS = null;
         
-        try (Connection con = (Connection) DataConnect.getConnection();) {
-            //con = (Connection) DataConnect.getConnection();
+        try (Connection connection = (Connection) DataConnect.getConnection();) {
             String query = "SELECT username, wachtwoord FROM account WHERE username = ? and wachtwoord = ?";
-            PreparedStatement pS = (PreparedStatement) con.prepareStatement(query);
+            PreparedStatement pS = (PreparedStatement) connection.prepareStatement(query);
             
             pS.setString(1, user);
             pS.setString(2, password);

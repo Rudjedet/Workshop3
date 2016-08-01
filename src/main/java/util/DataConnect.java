@@ -20,10 +20,10 @@ public class DataConnect {
     public static Connection getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection
-             ("jdbc:mysql://localhost:3306/mummiefabriekdb", "Sonja", "Asgard");
+            Connection connection = DriverManager.getConnection
+             ("jdbc:mysql://localhost:3306/mummiefabriekdb", "root", "Asgard");
             
-            return con;
+            return connection;
             
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DataConnect.class.getName()).log(Level.SEVERE, null, ex);
@@ -31,9 +31,9 @@ public class DataConnect {
         return null;
     }
     
-    public static void close(Connection con) {
+    public static void close(Connection connection) {
         try { 
-            con.close();
+            connection.close();
             
         } catch (SQLException ex) {
             Logger.getLogger(DataConnect.class.getName()).log(Level.SEVERE, null, ex);
