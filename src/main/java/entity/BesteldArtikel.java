@@ -24,25 +24,27 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "besteld_artikel")
-//@NamedQueries({
-//    @NamedQuery(name = "BesteldArtikel.findAll", query = "SELECT b FROM BesteldArtikel b"),
-//    @NamedQuery(name = "BesteldArtikel.findByBesteldArtikelid", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.besteldArtikelId = :besteldArtikelIdd"),
-//    @NamedQuery(name = "BesteldArtikel.findByAantal", query = "SELECT b FROM BesteldArtikel b WHERE b.aantal = :aantal"),
-//    @NamedQuery(name = "BesteldArtikel.findByBestellingIdbestelling", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.bestellingIdbestelling = :bestellingIdbestelling"),
-//    @NamedQuery(name = "BesteldArtikel.findByArtikelIdartikel", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId.artikelIdartikel = :artikelIdartikel")})
+@NamedQueries({
+    @NamedQuery(name = "BesteldArtikel.findAll", query = "SELECT b FROM BesteldArtikel b"),
+    @NamedQuery(name = "BesteldArtikel.findByBesteldArtikelid", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId = :besteldArtikelId"),
+    @NamedQuery(name = "BesteldArtikel.findByBestellingIdbestelling", query = "SELECT b FROM BesteldArtikel b WHERE b.bestellingIdbestelling.bestelling = :bestelling")})
 public class BesteldArtikel implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Basic(optional=false)
     @Column(name = "besteld_artikelid")
     private Integer besteldArtikelId;
+    
     @Column(name = "aantal")
     private Integer aantal;
+    
     @JoinColumn(name = "artikel_idartikel", referencedColumnName = "artikel_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Artikel artikel;
+    
     @JoinColumn(name = "bestelling_idbestelling", referencedColumnName = "bestelling_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Bestelling bestelling;
