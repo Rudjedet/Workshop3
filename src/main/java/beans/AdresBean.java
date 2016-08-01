@@ -8,9 +8,15 @@ package beans;
 import entity.Adres;
 import entity.AdresType;
 import entity.Klant;
+import entity.KlantAdres;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
+import session.AdresFacade;
+import session.KlantAdresFacade;
+import session.KlantFacade;
 
 /**
  *
@@ -23,15 +29,32 @@ import javax.inject.Named;
 public class AdresBean {
     
     private Adres adres;
-    private AdresType adresType;
     private Klant klant;
+    private List<Adres> adresGegevens;
+    private KlantAdres klantAdres;
+    
+    @EJB
+    private AdresFacade adFacade;
+    @EJB
+    private KlantFacade kFacade;
+    @EJB
+    private KlantAdresFacade kaFacade;
     
     public AdresBean() {
         adres = new Adres();
-        adresType = new AdresType();
         klant = new Klant();
     }
+    
+    /*
+    * CRUD methodes
+    */
+    public void leesAlleAdressen() {
+        setAdresGegevens(adFacade.findAll());
+    }
 
+    /*
+    * Getters & Setters
+    */
     public Adres getAdres() {
         return adres;
     }
@@ -40,20 +63,28 @@ public class AdresBean {
         this.adres = adres;
     }
 
-    public AdresType getAdresType() {
-        return adresType;
-    }
-
-    public void setAdresType(AdresType adresType) {
-        this.adresType = adresType;
-    }
-
     public Klant getKlant() {
         return klant;
     }
 
     public void setKlant(Klant klant) {
         this.klant = klant;
+    }
+
+    public List<Adres> getAdresGegevens() {
+        return adresGegevens;
+    }
+
+    public void setAdresGegevens(List<Adres> adressenLijst) {
+        this.adresGegevens = adressenLijst;
+    }
+
+    public KlantAdres getKlantAdres() {
+        return klantAdres;
+    }
+
+    public void setKlantAdres(KlantAdres klantAdres) {
+        this.klantAdres = klantAdres;
     }
 }
   

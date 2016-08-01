@@ -6,11 +6,12 @@
 package beans;
 
 import entity.Artikel;
-import entity.Bestelling;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
+import session.ArtikelFacade;
 
 /**
  *
@@ -23,35 +24,43 @@ import javax.inject.Named;
 public class ArtikelBean {
     
      private Artikel artikel;
-     private Bestelling bestelling;
-     private List<Artikel> artikelLijst;
+     private List<Artikel> artikelGegevens;
+     @EJB
+     private ArtikelFacade arFacade;
      
      public ArtikelBean() {
          artikel = new Artikel();
-         bestelling = new Bestelling();
      }
 
+    /*
+    * CRUD methodes
+    */ 
+    public void leesAlleArtikelen() {
+        setArtikelGegevens(arFacade.findAll());
+    }
+    
+    //TODO: public void voegArtikelToe() {}
+    
+    //TODO: public void verwijderArtikel() {}
+    
+    //TODO: public void editArtikel() {} 
+     
+    /*
+    * Getters & Setters
+    */    
+    public List<Artikel> getArtikelGegevens() {
+        return artikelGegevens;
+    }
+
+    public void setArtikelGegevens(List<Artikel> artikelGegevens) {
+        this.artikelGegevens = artikelGegevens;
+    }
+    
     public Artikel getArtikel() {
         return artikel;
     }
 
     public void setArtikel(Artikel artikel) {
         this.artikel = artikel;
-    }
-
-    public Bestelling getBestelling() {
-        return bestelling;
-    }
-
-    public void setBestelling(Bestelling bestelling) {
-        this.bestelling = bestelling;
-    }
-
-    public List<Artikel> getArtikelLijst() {
-        return artikelLijst;
-    }
-
-    public void setArtikelLijst(List<Artikel> artikelLijst) {
-        this.artikelLijst = artikelLijst;
     }
 }

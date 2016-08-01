@@ -5,13 +5,15 @@
  */
 package beans;
 
-import entity.Artikel;
+import entity.BesteldArtikel;
 import entity.Bestelling;
-import entity.Factuur;
-import entity.Klant;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
+import session.BesteldArtikelFacade;
+import session.BestellingFacade;
 
 /**
  *
@@ -24,17 +26,34 @@ import javax.inject.Named;
 public class BestellingBean {
     
     private Bestelling bestelling;
-    private Artikel artikel;
-    private Factuur factuur;
-    private Klant klant;
+    private List<Bestelling> alleBestellingen;
+    private List<BesteldArtikel> besteldeArtikelen;
+    private Double totaalBedrag;
+    
+    @EJB
+    private BestellingFacade bFacade;
+    @EJB
+    private BesteldArtikelFacade baFacade;
     
     public BestellingBean() {
         bestelling = new Bestelling();
-        artikel = new Artikel();
-        factuur = new Factuur();
-        klant = new Klant();
+        totaalBedrag = new Double(0);
     }
+    
+    /*
+    * CRUD methodes
+    */
+    public void leesAlleBestellingen() {
+        setAlleBestellingen(bFacade.findAll());
+    }
+    
+    //TODO: public void voegBestellingToe() {}
+    //TODO: public void verwijderBestelling() {}
+    //TODO: public void editBestelling() {}
 
+    /*
+    * Getters & Setters
+    */
     public Bestelling getBestelling() {
         return bestelling;
     }
@@ -43,19 +62,27 @@ public class BestellingBean {
         this.bestelling = bestelling;
     }
 
-    public Artikel getArtikel() {
-        return artikel;
+    public List<Bestelling> getAlleBestellingen() {
+        return alleBestellingen;
     }
 
-    public void setArtikel(Artikel artikel) {
-        this.artikel = artikel;
+    public void setAlleBestellingen(List<Bestelling> alleBestellingen) {
+        this.alleBestellingen = alleBestellingen;
     }
 
-    public Factuur getFactuur() {
-        return factuur;
+    public List<BesteldArtikel> getBesteldeArtikelen() {
+        return besteldeArtikelen;
     }
 
-    public void setFactuur(Factuur factuur) {
-        this.factuur = factuur;
+    public void setBesteldeArtikelen(List<BesteldArtikel> besteldeArtikelen) {
+        this.besteldeArtikelen = besteldeArtikelen;
+    }
+
+    public Double getTotaalBedrag() {
+        return totaalBedrag;
+    }
+
+    public void setTotaalBedrag(Double totaalBedrag) {
+        this.totaalBedrag = totaalBedrag;
     }
 }
