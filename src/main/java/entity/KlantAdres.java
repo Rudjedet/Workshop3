@@ -59,10 +59,6 @@ public class KlantAdres implements Serializable {
         this.klantAdresId = klantAdresId;
     }
 
-//    public KlantAdres(int klantIdklant, int adresIdadres) {
-//        this.klantAdresId = new int(klantIdklant, adresIdadres);
-//    }
-
     public int getKlantAdresId() {
         return klantAdresId;
     }
