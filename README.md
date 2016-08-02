@@ -1,106 +1,55 @@
-# Workshop3
+LOGIN.XHTML
 
-HEADER.JSPF
+* inlogfunctie --> verwijst naar INLOGGELUKT.XHTML
+* registratiefunctie --> verwijst naar REGISTREREN.XHTML
 
-- Logo linksboven
-- Winkelwagen button + totaalprijs rechtsboven -> naar pagina WINKELWAGEN.JSP
-- Inlog/registratiefunctie middenboven -> naar pagina INLOGGEN.JSP of REGISTREREN.JSP
-	- Na inloggen "welkom, [klant]" middenboven -> naar pagina ACCOUNT.JSP
-	
-FOOTER.JSPF
+REGISTREREN.XHTML
 
-- Copyright Khufu & Dochters
+* registratiefunctie (= aanmaak nieuwe klant + adres + account) --> verwijst naar INLOGGELUKT.XHTML
 
-INDEX.JSP
+INLOGGELUKT.XHTML
 
-- Knop "SHOP NOW" rechtsmidden
+* knop NAAR ARTIKELEN --> verwijst naar ARTIKELEN.XHTML
+* knop NAAR ACCOUNT --> verwijst naar ACCOUNT.XHTML
 
-SHOP.JSP
+ARTIKELEN.XHTML
 
-- Welkomsttekst linkerkolom
-- Tabel met artikelen + knop "in winkelwagen" rechterkolom
+* lijst met artikelen in database (zie huidige index.xhtml voor code)
+* knop PAS ARTIKELEN AAN --> verwijst naar EDITARTIKEL.XHTML
+* knop VOEG TOE AAN BESTELLING voor elk artikel (= schrijft weg naar besteldartikel tabel)
 
-WINKELWAGEN.JSP													//Singleton session (unieke URL)
+EDITARTIKEL.XHTML
 
-- Tabel met bestelde artikelen + aantallen & totaalprijs
-	- Mogelijkheid aanpassen in tabel zelf (?)
-- Totaalprijs gehele bestelling
-- Knop "bestellen" -> naar pagina BESTELLING.JSP
-- Wanneer niet ingelogd errorpage [NIETINGELOGD.JSP] "U dient eerst in te loggen of een account aan te maken" -> links naar INLOGGEN.JSP of REGISTREREN.JSP
+* vraagt welk artikel aangepast moet worden (op basis van ID)
+* invoervelden met naam, prijs, voorraad
 
-BESTELLING.JSP													//Singleton session (unieke URL)
+ACCOUNT.XHTML
 
-- Tabel met overzicht bestelling
-- Knop "terug" -> naar pagina WINKELWAGEN.JSP
-- Knop "bevestigen & afrekenen" -> naar pagina BETALING.JSP
+* NAW-gegevens
+* knop PAS KLANTGEGEVENS AAN --> verwijst naar EDITKLANT.XHTML
+* knop PAS ADRESGEGEVENS AAN --> verwijst naar EDITADRES.XHTML
+* Tabel bestellingen (met ID)
+* knop BEKIJK EEN BESTELLING --> verwijst naar KLANTBESTELLING.XHTML 
 
-BETALING.JSP
+EDITKLANT.XHTML
 
-- Betaalwijze kiezen ("lege" functionaliteit; doet nl. niets)
-- Knop afrekenen -> naar pagina FACTUURBEVESTIGING.JSP
+* invoervelden naam, achternaam, emailadres (accountnaam kan niet aangepast worden) --> verwijst terug naar ACCOUNT.XHTML wanneer gelukt
 
-FACTUURBEVESTIGING.JSP 									//Singleton session (unieke URL)
+EDITADRES.XHTML
 
-- Display factuur met:
-	* Factuur ID	
-	* Bestelling ID
-	* Klantnaam
-	* Adres
-	* Bestelling (aantallen + totaalprijs)
-	* Betaalwijze + betaaldatum
-- Knop "terug naar webwinkel" -> naar pagina SHOP.JSP
+* invoervelden straatnaam etc. --> verwijst terug naar ACCOUNT.XHTML wanneer gelukt
 
-ACCOUNT.JSP 													  //Singleton session (unieke URL)
+KLANTBESTELLING.XHTML
 
-- Tabel met klant- en adresgegevens rechterkolom
-- Knop "aanpassen" -> naar pagina GEGEVENSAANPASSEN.JSP
-- Lijst met facturen en bestellingen linkerkolom
-- Knop "bekijk factuur" -> naar pagina KLANTFACTUUR.JSP
-- Knop "bekijk bestelling" -> naar pagina KLANTBESTELLING.JSP
+* invoerveld voor bestelling ID
+* Tabel met artikelen in deze bestelling + totaalprijs
+* knop PAS BESTELLING AAN --> verwijst naar EDITBESTELLING.XHTML
+* knop VERWIJDER BESTELLING (= verwijdert bestelling uit database) --> refresht pagina KLANTBESTELLING.XHTML met geupdate db informatie
 
-KLANTFACTUUR.JSP											  //Singleton session (unieke URL op basis van factuur ID)
+EDITBESTELLING.XHTML
 
-- Opent in nieuw venster
-- Display de aangevraagde factuur met:
-	* Factuur ID	
-	* Bestelling ID
-	* Klantnaam
-	* Adres
-	* Bestelling (aantallen + totaalprijs)
-	* Betaalwijze + betaaldatum
+* invoervelden met artikelnaam & aantal --> verwijst terug naar KLANTBESTELLING.XHTML wanneer gelukt
 
-KLANTBESTELLING.JSP										  //Singleton session (unieke URL op basis van bestelling ID)
+LOGOUT.XHTML
 
-- Opent in nieuw venster
-- Display de aangevraagde bestelling met:
-	* Bestelling ID
-	* "Op Factuur [FactuurID]"
-	* Klantnaam
-	* Bestelling (aantallen + totaalprijs)
-	* Betaalwijze + betaaldatum
-	* Verzonden JA/NEE (altijd JA :P)
-	
-INLOGGEN.JSP
-
-- Inlogfunctie
-	* Invoeren: accountnaam
-	* Invoeren: wachtwoord
-	* Knop "LOG IN"
-
-REGISTREREN.JSP
-
-- Registratiefunctie
-	* Invoeren: NAW gegevens
-	* Kiezen: accountnaam
-	* Kiezen: wachtwoord
-- Knop "Account aanmaken"
-
-INLOGGELUKT.JSP
-
-- "U bent ingelogd!"
-- Knop "Verder winkelen" -> naar pagina SHOP.JSP
-
-ERRORNOLOGIN.JSP
-
-- "U heeft nog geen account of u bent niet ingelogd in onze webshop."
-- "U dient eerst <u>in te loggen</u> [link: INLOGGEN.JSP] of een <u>account aan te maken</u> [link: REGISTREREN.JSP]"
+* logt klant uit --> verwijst terug naar LOGIN.XHTML wanneer gelukt
