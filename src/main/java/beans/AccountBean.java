@@ -7,12 +7,15 @@ package beans;
 
 import entity.Account;
 import entity.Klant;
+import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
 import session.AccountFacade;
+import session.KlantAdresFacade;
 import session.KlantFacade;
 
 /**
@@ -28,11 +31,13 @@ public class AccountBean {
     private Account account;
     private Klant klant;
     private int klantID;
-    private List<Account> accountGegevens;
+    private List<Account> alleAccounts;
     @EJB
     private AccountFacade acFacade;
     @EJB
     private KlantFacade kFacade;
+    @EJB
+    private KlantAdresFacade kaFacade;
     
     
     public AccountBean() {
@@ -40,19 +45,28 @@ public class AccountBean {
         klant = new Klant();
     }
     
+    @PostConstruct
+    public void init() {
+        alleAccounts = new ArrayList<>();
+    }
+    
     /*
     * CRUD methodes
     */
+    public void maakNieuwAccount() {
+        //TODO: klant aanroepen voor welke een account gemaakt wordt
+        //klant = [input voor id]
+        //kFacade.find(klant);
+        acFacade.create(account);
+        alleAccounts.add(account);
+    }
+    
     public void leesAlleKlantAccounts() {
-        setAccountGegevens(acFacade.findAll());
+        setAlleAccounts(acFacade.findAll());
     }
     
     //TODO: public void leesAccountVanKlant() {}
-    
-    //TODO: public void voegAccountToe() {}
-    
-    //TODO: public void verwijderAccount() {}
-    
+    //TODO: public void verwijderAccount() {} 
     //TODO: public void editAccount() {}
     
     /*
@@ -82,11 +96,11 @@ public class AccountBean {
         this.klantID = klantID;
     }
 
-    public List<Account> getAccountGegevens() {
-        return accountGegevens;
+    public List<Account> getAlleAccounts() {
+        return alleAccounts;
     }
 
-    public void setAccountGegevens(List<Account> accountGegevens) {
-        this.accountGegevens = accountGegevens;
+    public void setAlleAccounts(List<Account> alleAccounts) {
+        this.alleAccounts = alleAccounts;
     }
 }

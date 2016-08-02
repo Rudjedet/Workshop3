@@ -7,7 +7,9 @@ package beans;
 
 import entity.BesteldArtikel;
 import entity.Bestelling;
+import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
@@ -40,14 +42,24 @@ public class BestellingBean {
         totaalBedrag = new Double(0);
     }
     
+    @PostConstruct
+    public void init() {
+        alleBestellingen = new ArrayList<>();
+    }    
+    
     /*
     * CRUD methodes
     */
+    public void maakNieuweBestelling() {
+        bFacade.create(bestelling);
+        //TODO: voeg artikelen toe aan bestelling
+        alleBestellingen.add(bestelling);
+    }
+    
     public void leesAlleBestellingen() {
         setAlleBestellingen(bFacade.findAll());
     }
     
-    //TODO: public void voegBestellingToe() {}
     //TODO: public void verwijderBestelling() {}
     //TODO: public void editBestelling() {}
 

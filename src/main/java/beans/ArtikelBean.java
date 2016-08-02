@@ -6,7 +6,9 @@
 package beans;
 
 import entity.Artikel;
+import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
@@ -24,7 +26,7 @@ import session.ArtikelFacade;
 public class ArtikelBean {
     
      private Artikel artikel;
-     private List<Artikel> artikelGegevens;
+     private List<Artikel> artikelLijst;
      @EJB
      private ArtikelFacade arFacade;
      
@@ -32,28 +34,35 @@ public class ArtikelBean {
          artikel = new Artikel();
      }
 
+    @PostConstruct
+    public void init() {
+        artikelLijst = new ArrayList<>();
+    }
+     
     /*
     * CRUD methodes
     */ 
+    public void maakNieuwArtikel() {
+        arFacade.create(artikel);
+        artikelLijst.add(artikel);
+    } 
+     
     public void leesAlleArtikelen() {
-        setArtikelGegevens(arFacade.findAll());
+        setArtikelLijst(arFacade.findAll());
     }
-    
-    //TODO: public void voegArtikelToe() {}
-    
-    //TODO: public void verwijderArtikel() {}
-    
+      
+    //TODO: public void verwijderArtikel() {}   
     //TODO: public void editArtikel() {} 
      
     /*
     * Getters & Setters
     */    
-    public List<Artikel> getArtikelGegevens() {
-        return artikelGegevens;
+    public List<Artikel> getArtikelLijst() {
+        return artikelLijst;
     }
 
-    public void setArtikelGegevens(List<Artikel> artikelGegevens) {
-        this.artikelGegevens = artikelGegevens;
+    public void setArtikelLijst(List<Artikel> artikelLijst) {
+        this.artikelLijst = artikelLijst;
     }
     
     public Artikel getArtikel() {

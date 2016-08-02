@@ -6,10 +6,11 @@
 package beans;
 
 import entity.Adres;
-import entity.AdresType;
 import entity.Klant;
 import entity.KlantAdres;
+import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
@@ -45,12 +46,27 @@ public class AdresBean {
         klant = new Klant();
     }
     
+    @PostConstruct
+    public void init() {
+        adresGegevens = new ArrayList<>();
+    }
     /*
     * CRUD methodes
     */
+    public void maakNieuwAdres() {
+        adFacade.create(adres);
+        adresGegevens.add(adres);
+        //TODO: toevoegen aan (bestaande) klant
+    }
+    
     public void leesAlleAdressen() {
         setAdresGegevens(adFacade.findAll());
     }
+    
+    /*public List<Adres> leesAlleAdresgegevens() {
+        setAdresGegevens(adFacade.findAll());
+        return adresGegevens;
+    }*/
 
     /*
     * Getters & Setters
