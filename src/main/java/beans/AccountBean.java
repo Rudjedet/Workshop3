@@ -65,9 +65,14 @@ public class AccountBean {
         setAlleAccounts(acFacade.findAll());
     }
     
-    //TODO: public void leesAccountVanKlant() {}
-    //TODO: public void verwijderAccount() {} 
-    //TODO: public void editAccount() {}
+    public void editAccount() {
+        acFacade.edit(account);
+    }
+    
+    public void verwijderAccount() {
+        acFacade.remove(account);
+        alleAccounts.remove(account);
+    }
     
     /*
     * Getters & Setters

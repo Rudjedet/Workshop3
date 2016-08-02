@@ -53,8 +53,13 @@ public class KlantBean implements Serializable {
         setKlantGegevens(kFacade.findAll());
     }
     
-    //TODO: public void verwijderKlant() {}
-    //TODO: public void editKlant() {}
+    public void editKlant() {
+        kFacade.edit(klant);
+    }
+    
+    public void verwijderKlant() {
+        kFacade.remove(klant);
+    }
     
     /*
     * Getters & Setters

@@ -50,9 +50,15 @@ public class ArtikelBean {
     public void leesAlleArtikelen() {
         setArtikelLijst(arFacade.findAll());
     }
+    
+    public void editArtikel() {
+        arFacade.edit(artikel);
+    }
       
-    //TODO: public void verwijderArtikel() {}   
-    //TODO: public void editArtikel() {} 
+    public void verwijderArtikel() {
+        arFacade.remove(artikel);
+        artikelLijst.remove(artikel);
+    }
      
     /*
     * Getters & Setters

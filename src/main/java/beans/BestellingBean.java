@@ -60,8 +60,18 @@ public class BestellingBean {
         setAlleBestellingen(bFacade.findAll());
     }
     
-    //TODO: public void verwijderBestelling() {}
-    //TODO: public void editBestelling() {}
+    public void editBestelling() {
+        //TODO: 
+        bFacade.edit(bestelling);
+    }
+    
+    public void verwijderBestelling() {
+        bFacade.remove(bestelling);
+    }
+    
+    //TODO: public void verwijderArtikelUitBestelling() {
+    
+    //TODO: public void 
 
     /*
     * Getters & Setters

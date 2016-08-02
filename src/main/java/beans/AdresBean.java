@@ -63,10 +63,17 @@ public class AdresBean {
         setAdresGegevens(adFacade.findAll());
     }
     
-    /*public List<Adres> leesAlleAdresgegevens() {
-        setAdresGegevens(adFacade.findAll());
-        return adresGegevens;
-    }*/
+    public void editAdres() {
+        adFacade.edit(adres);
+        adresGegevens.add(adres);
+    }
+    
+    public void verwijderAdres() {
+        adFacade.remove(adres);
+        //TODO: verwijder uit List<Adres> adresGegevens
+        //adresGegevens.remove(adres);
+        //TODO: verwijder van gekoppelde klant
+    }
 
     /*
     * Getters & Setters
@@ -91,8 +98,8 @@ public class AdresBean {
         return adresGegevens;
     }
 
-    public void setAdresGegevens(List<Adres> adressenLijst) {
-        this.adresGegevens = adressenLijst;
+    public void setAdresGegevens(List<Adres> adresGegevens) {
+        this.adresGegevens = adresGegevens;
     }
 
     public KlantAdres getKlantAdres() {
