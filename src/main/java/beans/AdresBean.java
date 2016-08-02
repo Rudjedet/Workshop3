@@ -56,7 +56,7 @@ public class AdresBean {
     public void maakNieuwAdres() {
         adFacade.create(adres);
         adresGegevens.add(adres);
-        //TODO: toevoegen aan (bestaande) klant
+        //TODO: toevoegen aan bestaande klant
     }
     
     public void leesAlleAdressen() {
@@ -65,7 +65,7 @@ public class AdresBean {
     
     public void editAdres() {
         adFacade.edit(adres);
-        adresGegevens.add(adres);
+        adres = new Adres();
     }
     
     public void verwijderAdres() {

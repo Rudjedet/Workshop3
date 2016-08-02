@@ -55,10 +55,13 @@ public class KlantBean implements Serializable {
     
     public void editKlant() {
         kFacade.edit(klant);
+        klant = new Klant();
     }
     
     public void verwijderKlant() {
         kFacade.remove(klant);
+        //TODO: koppel los en/of verwijder adres(sen)
+        //TODO: verwijder bestellingen
     }
     
     /*

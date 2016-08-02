@@ -55,7 +55,7 @@ public class AccountBean {
     */
     public void maakNieuwAccount() {
         //TODO: klant aanroepen voor welke een account gemaakt wordt
-        //klant = [input voor id]
+        //klant = new Klant();
         //kFacade.find(klant);
         acFacade.create(account);
         alleAccounts.add(account);
@@ -67,6 +67,7 @@ public class AccountBean {
     
     public void editAccount() {
         acFacade.edit(account);
+        account = new Account();
     }
     
     public void verwijderAccount() {

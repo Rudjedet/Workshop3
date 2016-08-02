@@ -53,6 +53,7 @@ public class ArtikelBean {
     
     public void editArtikel() {
         arFacade.edit(artikel);
+        artikel = new Artikel();
     }
       
     public void verwijderArtikel() {
