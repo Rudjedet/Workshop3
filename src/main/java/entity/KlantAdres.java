@@ -28,22 +28,26 @@ import javax.persistence.Table;
     @NamedQuery(name = "KlantAdres.findAll", query = "SELECT k FROM KlantAdres k"),
     @NamedQuery(name = "KlantAdres.findByKlantAdresid", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId = :klantAdresId"),
     @NamedQuery(name = "KlantAdres.findByKlantIdklant", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId.klantIdklant = :klantIdklant"),
-    @NamedQuery(name = "KlantAdres.findByAdresIdadres", query = "SELECT k FROM KlantAdres k WHERE k.adresIdadres.adres = :adres")})
+    @NamedQuery(name = "KlantAdres.findByAdresIdadres", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId.adresIdadres = :adresIdadres")})
 
 public class KlantAdres implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Basic(optional=false)
     @Column(name = "klant_adresid")
     private Integer klantAdresId;
+    
     @JoinColumn(name = "adres_idadres", referencedColumnName = "adres_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Adres adres;
+    
     @JoinColumn(name = "adrestype_idadrestype", referencedColumnName = "adrestype_id")
     @ManyToOne(optional = false)
     private AdresType adrestypeIdadrestype;
+    
     @JoinColumn(name = "klant_idklant", referencedColumnName = "klant_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Klant klant;

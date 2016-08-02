@@ -56,9 +56,10 @@ public class BesteldArtikel implements Serializable {
         this.besteldArtikelId = besteldArtikelId;
     }
 
-//    public BesteldArtikel(int besteldArtikelid, int bestellingIdbestelling, int artikelIdartikel) {
-//        this.besteldArtikelId = new Integer(besteldArtikelid, bestellingIdbestelling, artikelIdartikel);
-//    }
+    public BesteldArtikel(Integer besteldArtikelId, int aantal) {
+        this.besteldArtikelId = besteldArtikelId;
+        this.aantal = aantal;
+    }
     
     public Integer getBesteldArtikelId() {
         return besteldArtikelId;

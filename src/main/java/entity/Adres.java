@@ -31,36 +31,42 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Adres.findAll", query = "SELECT a FROM Adres a"),
     @NamedQuery(name = "Adres.findByAdresId", query = "SELECT a FROM Adres a WHERE a.adresId = :adresId"),
     @NamedQuery(name = "Adres.findByStraatnaam", query = "SELECT a FROM Adres a WHERE a.straatnaam = :straatnaam"),
-    @NamedQuery(name = "Adres.findByHuisnummer", query = "SELECT a FROM Adres a WHERE a.huisnummer = :huisnummer"),
+    //@NamedQuery(name = "Adres.findByHuisnummer", query = "SELECT a FROM Adres a WHERE a.huisnummer = :huisnummer"),
     @NamedQuery(name = "Adres.findByPostcode", query = "SELECT a FROM Adres a WHERE a.postcode = :postcode"),
     @NamedQuery(name = "Adres.findByWoonplaats", query = "SELECT a FROM Adres a WHERE a.woonplaats = :woonplaats")})
 public class Adres implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "adres_id")
     private Integer adresId;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "straatnaam")
     private String straatnaam;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "huisnummer")
     private int huisnummer;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 6)
     @Column(name = "postcode")
     private String postcode;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "woonplaats")
     private String woonplaats;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "adres")
     private Collection<KlantAdres> klantAdresCollection;
 
@@ -150,6 +156,5 @@ public class Adres implements Serializable {
     @Override
     public String toString() {
         return "entity.Adres[ adresId=" + adresId + " ]";
-    }
-    
+    }   
 }

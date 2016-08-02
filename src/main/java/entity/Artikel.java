@@ -31,31 +31,36 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Artikel.findAll", query = "SELECT a FROM Artikel a"),
     @NamedQuery(name = "Artikel.findByArtikelId", query = "SELECT a FROM Artikel a WHERE a.artikelId = :artikelId"),
-    @NamedQuery(name = "Artikel.findByArtikelnaam", query = "SELECT a FROM Artikel a WHERE a.artikelnaam = :artikelnaam"),
-    @NamedQuery(name = "Artikel.findByArtikelprijs", query = "SELECT a FROM Artikel a WHERE a.artikelprijs = :artikelprijs"),
-    @NamedQuery(name = "Artikel.findByArtikelvoorraad", query = "SELECT a FROM Artikel a WHERE a.artikelvoorraad = :artikelvoorraad")})
+    @NamedQuery(name = "Artikel.findByArtikelnaam", query = "SELECT a FROM Artikel a WHERE a.artikelnaam = :artikelnaam")})
+    //@NamedQuery(name = "Artikel.findByArtikelprijs", query = "SELECT a FROM Artikel a WHERE a.artikelprijs = :artikelprijs"),
+    //@NamedQuery(name = "Artikel.findByArtikelvoorraad", query = "SELECT a FROM Artikel a WHERE a.artikelvoorraad = :artikelvoorraad")})
 public class Artikel implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "artikel_id")
     private Integer artikelId;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "artikelnaam")
     private String artikelnaam;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+   
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 999999)
     @Column(name = "artikelprijs")
     private BigDecimal artikelprijs;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "artikelvoorraad")
     private int artikelvoorraad;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "artikel")
     private Collection<BesteldArtikel> besteldArtikelCollection;
 

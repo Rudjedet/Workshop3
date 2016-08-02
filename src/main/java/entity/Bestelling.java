@@ -38,11 +38,14 @@ public class Bestelling implements Serializable {
     @Basic(optional = false)
     @Column(name = "bestelling_id")
     private Integer bestellingId;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bestelling")
     private Collection<BesteldArtikel> besteldArtikelCollection;
+    
     @JoinColumn(name = "klant_idklant", referencedColumnName = "klant_id")
     @ManyToOne(optional = false)
     private Klant klantIdklant;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bestellingIdbestelling")
     private Collection<Factuur> factuurCollection;
 

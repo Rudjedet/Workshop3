@@ -36,32 +36,40 @@ import javax.validation.constraints.Size;
 public class Klant implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "klant_id")
     private Integer klantId;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "voornaam")
     private String voornaam;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "achternaam")
     private String achternaam;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "emailadres")
     private String emailadres;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "klantIdklant")
     private Collection<Betaling> betalingCollection;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "klant")
     private Collection<KlantAdres> klantAdresCollection;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "klantIdklant")
     private Collection<Bestelling> bestellingCollection;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "klantIdklant")
     private Collection<Account> accountCollection;
 
