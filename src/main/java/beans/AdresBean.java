@@ -70,7 +70,7 @@ public class AdresBean {
     
     public void verwijderAdres() {
         adFacade.remove(adres);
-        //TODO: verwijder uit List<Adres> adresGegevens
+        //TODO: verwijder uit List<Adres> adresGegevens ??
         //adresGegevens.remove(adres);
         //TODO: verwijder van gekoppelde klant
     }

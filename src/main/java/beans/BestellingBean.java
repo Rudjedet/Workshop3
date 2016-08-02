@@ -61,7 +61,8 @@ public class BestellingBean {
     }
     
     public void editBestelling() {
-        //TODO: voeg artikelen toe of verwijder deze
+        //TODO: voeg artikelen toe 
+        //TODO: verwijder artikelen
         bFacade.edit(bestelling);
         bestelling = new Bestelling();
     }
