@@ -22,6 +22,7 @@ import javax.persistence.Table;
  *
  * @author Sonja
  */
+
 @Entity
 @Table(name = "besteld_artikel")
 @NamedQueries({
