@@ -25,10 +25,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "klant_adres")
 @NamedQueries({
-    @NamedQuery(name = "KlantAdres.findAll", query = "SELECT k FROM KlantAdres k")})
-    //@NamedQuery(name = "KlantAdres.findByKlantAdresid", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId = :klantAdresId"),
-    //@NamedQuery(name = "KlantAdres.findByKlantIdklant", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId.klantIdklant = :klantIdklant"),
-    //@NamedQuery(name = "KlantAdres.findByAdresIdadres", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId.adresIdadres = :adresIdadres")})
+    @NamedQuery(name = "KlantAdres.findAll", query = "SELECT k FROM KlantAdres k"),
+    @NamedQuery(name = "KlantAdres.findByKlantAdresid", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId = :klantAdresId"),
+    @NamedQuery(name = "KlantAdres.findByKlantIdklant", query = "SELECT k FROM KlantAdres k WHERE k.klant = :klant"),
+    @NamedQuery(name = "KlantAdres.findByAdresIdadres", query = "SELECT k FROM KlantAdres k WHERE k.adres = :adres")})
 
 public class KlantAdres implements Serializable {
 
