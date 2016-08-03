@@ -5,7 +5,9 @@
  */
 package beans;
 
+import entity.Adres;
 import entity.Klant;
+import entity.KlantAdres;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,9 @@ public class KlantBean implements Serializable {
     
     private Klant klant;
     private List<Klant> klantGegevens;
+    private Adres adres;
+    private KlantAdres klad;
+    private List<KlantAdres> kladLijst;
     
     @EJB
     private KlantFacade kFacade;
@@ -60,9 +65,9 @@ public class KlantBean implements Serializable {
     
     public void verwijderKlant() {
         kFacade.remove(klant);
-        //TODO: koppel los en/of verwijder adres(sen)
+        //TODO: koppel los en/of verwijder gekoppelde adres(sen) 
         //TODO: verwijder bestellingen
-    }
+    } 
     
     /*
     * Getters & Setters

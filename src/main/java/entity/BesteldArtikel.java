@@ -26,8 +26,8 @@ import javax.persistence.Table;
 @Table(name = "besteld_artikel")
 @NamedQueries({
     @NamedQuery(name = "BesteldArtikel.findAll", query = "SELECT b FROM BesteldArtikel b"),
-    @NamedQuery(name = "BesteldArtikel.findByBesteldArtikelid", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId = :besteldArtikelId")})
-    //@NamedQuery(name = "BesteldArtikel.findByBestellingIdbestelling", query = "SELECT b FROM BesteldArtikel b WHERE b.bestellingIdbestelling.bestelling = :bestelling")})
+    @NamedQuery(name = "BesteldArtikel.findByBesteldArtikelid", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId = :besteldArtikelId"),
+    @NamedQuery(name = "BesteldArtikel.findByBestellingIdbestelling", query = "SELECT b FROM BesteldArtikel b WHERE b.bestelling = :bestelling")})
 public class BesteldArtikel implements Serializable {
 
     private static final long serialVersionUID = 1L;
