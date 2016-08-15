@@ -14,6 +14,8 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import session.BesteldArtikelFacade;
 import session.BestellingFacade;
 
@@ -67,8 +69,10 @@ public class BestellingBean {
         bestelling = new Bestelling();
     }
     
+    @OneToMany(mappedBy="klant", orphanRemoval=true)
     public void verwijderBestelling() {
         bFacade.remove(bestelling);
+        alleBestellingen.remove(bestelling);
     }
     
     //TODO: public void verwijderArtikelUitBestelling() {

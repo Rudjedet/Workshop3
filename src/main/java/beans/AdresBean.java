@@ -15,6 +15,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
+import javax.persistence.OneToMany;
 import session.AdresFacade;
 import session.KlantAdresFacade;
 import session.KlantFacade;
@@ -29,10 +30,11 @@ import session.KlantFacade;
 @Named
 public class AdresBean {
     
-    private Adres adres;
-    private Klant klant;
+    private Adres ditAdres;
+    private Klant dezeKlant;
     private List<Adres> adresGegevens;
     private KlantAdres klantAdres;
+    private List<KlantAdres> klantadressen;
     
     @EJB
     private AdresFacade adFacade;
@@ -42,8 +44,8 @@ public class AdresBean {
     private KlantAdresFacade kaFacade;
     
     public AdresBean() {
-        adres = new Adres();
-        klant = new Klant();
+        ditAdres = new Adres();
+        dezeKlant = new Klant();
     }
     
     @PostConstruct
@@ -54,9 +56,17 @@ public class AdresBean {
     * CRUD methodes
     */
     public void maakNieuwAdres() {
-        adFacade.create(adres);
-        adresGegevens.add(adres);
-        //TODO: toevoegen aan bestaande klant
+        adFacade.create(ditAdres);
+        adresGegevens.add(ditAdres);
+    }
+    
+    public void voegAdresToeAanKlant(Adres adres) {
+        KlantAdres kA = new KlantAdres();
+        kA.setAdres(adres);
+        kA.setKlant(dezeKlant);
+        kaFacade.create(kA);
+        klantadressen.add(kA);
+        ditAdres = new Adres();
     }
     
     public void leesAlleAdressen() {
@@ -64,34 +74,34 @@ public class AdresBean {
     }
     
     public void editAdres() {
-        adFacade.edit(adres);
-        adres = new Adres();
+        adFacade.edit(ditAdres);
+        ditAdres = new Adres();
     }
     
+    @OneToMany(mappedBy="klant", orphanRemoval=true)
     public void verwijderAdres() {
-        adFacade.remove(adres);
-        //TODO: verwijder uit List<Adres> adresGegevens ??
-        //adresGegevens.remove(adres);
-        //TODO: verwijder van gekoppelde klant
+        adFacade.remove(ditAdres);
+        adresGegevens.remove(ditAdres);
+        //DONE: verwijdert van gekoppelde dezeKlant met orphanRemoval - needs testing
     }
 
     /*
     * Getters & Setters
     */
-    public Adres getAdres() {
-        return adres;
+    public Adres getDitAdres() {
+        return ditAdres;
     }
 
-    public void setAdres(Adres adres) {
-        this.adres = adres;
+    public void setDitAdres(Adres ditAdres) {
+        this.ditAdres = ditAdres;
     }
 
-    public Klant getKlant() {
-        return klant;
+    public Klant getDezeKlant() {
+        return dezeKlant;
     }
 
-    public void setKlant(Klant klant) {
-        this.klant = klant;
+    public void setDezeKlant(Klant dezeKlant) {
+        this.dezeKlant = dezeKlant;
     }
 
     public List<Adres> getAdresGegevens() {
@@ -108,6 +118,14 @@ public class AdresBean {
 
     public void setKlantAdres(KlantAdres klantAdres) {
         this.klantAdres = klantAdres;
+    }
+
+    public List<KlantAdres> getKlantadressen() {
+        return klantadressen;
+    }
+
+    public void setKlantadressen(List<KlantAdres> klantadressen) {
+        this.klantadressen = klantadressen;
     }
 }
   

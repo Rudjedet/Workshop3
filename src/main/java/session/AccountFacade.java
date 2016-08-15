@@ -6,9 +6,11 @@
 package session;
 
 import entity.Account;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +29,13 @@ public class AccountFacade extends AbstractFacade<Account> {
 
     public AccountFacade() {
         super(Account.class);
+    }
+    
+    public List<Account> findByKlantID(int klantId) {
+        Query query = em.createNamedQuery("Account.findByKlantID", Account.class);
+        query.setParameter("klant_id", klantId);
+        
+        return query.getResultList();
     }
     
 }

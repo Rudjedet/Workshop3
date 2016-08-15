@@ -16,6 +16,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
+import javax.persistence.OneToMany;
 import session.KlantFacade;
 
 /**
@@ -63,10 +64,10 @@ public class KlantBean implements Serializable {
         klant = new Klant();
     }
     
+    @OneToMany(mappedBy="adres, bestelling", orphanRemoval=true)
     public void verwijderKlant() {
         kFacade.remove(klant);
-        //TODO: koppel los en/of verwijder gekoppelde adres(sen) 
-        //TODO: verwijder bestellingen
+        //DONE: verwijder orphaned adressen en bestellingen - needs testing
     } 
     
     /*

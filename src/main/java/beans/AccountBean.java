@@ -8,6 +8,7 @@ package beans;
 import entity.Account;
 import entity.Klant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -15,8 +16,8 @@ import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
 import session.AccountFacade;
-import session.KlantAdresFacade;
-import session.KlantFacade;
+//import session.KlantAdresFacade;
+//import session.KlantFacade;
 
 /**
  *
@@ -28,21 +29,21 @@ import session.KlantFacade;
 @Named
 public class AccountBean {
     
-    private Account account;
-    private Klant klant;
+    private Account ditAccount;
+    private Klant dezeKlant;
     private int klantID;
     private List<Account> alleAccounts;
     @EJB
     private AccountFacade acFacade;
-    @EJB
-    private KlantFacade kFacade;
-    @EJB
-    private KlantAdresFacade kaFacade;
+    //@EJB
+    //private KlantFacade kFacade;
+    //@EJB
+    //private KlantAdresFacade kaFacade;
     
     
     public AccountBean() {
-        account = new Account();
-        klant = new Klant();
+        ditAccount = new Account();
+        dezeKlant = new Klant();
     }
     
     @PostConstruct
@@ -54,44 +55,67 @@ public class AccountBean {
     * CRUD methodes
     */
     public void maakNieuwAccount() {
-        //TODO: klant aanroepen voor welke een account gemaakt wordt
-        //klant = new Klant();
-        //kFacade.find(klant);
-        acFacade.create(account);
-        alleAccounts.add(account);
+        dezeKlant = new Klant();
+        dezeKlant.setKlantId(klantID);
+        ditAccount.setAanmaakdatum(new Date());
+        acFacade.create(ditAccount);
+        alleAccounts.add(ditAccount);
     }
     
     public void leesAlleKlantAccounts() {
         setAlleAccounts(acFacade.findAll());
     }
     
-    public void editAccount() {
-        acFacade.edit(account);
-        account = new Account();
+    public void leesDitAccount(Klant klant) {
+        setDezeKlant(klant);
+        setAlleAccounts(acFacade.findByKlantID(dezeKlant.getKlantId()));
     }
     
+    public String editDitAccount() { 
+        acFacade.edit(ditAccount);   
+        ditAccount = new Account();
+        return "account";
+    }
+    
+    public String gaNaarEditAccount(Account account) {
+        setDitAccount(account);
+        return "editaccount";
+    }
+
+    /*Onderstaande moet in resp. KlantBean en AdresBean    
+    public String gaNaarEditKlantGegevens(Klant klant) {
+        setDezeKlant(klant); 
+        return "editklant";
+    }
+    
+    public String gaNaarEditAdresGegevens(Adres adres) {
+        setDitAdres(adres);
+        return "editadres";
+    }
+    */
+    
     public void verwijderAccount() {
-        acFacade.remove(account);
-        alleAccounts.remove(account);
+        acFacade.remove(ditAccount);
+        alleAccounts.remove(ditAccount);
     }
     
     /*
     * Getters & Setters
     */
-    public Account getAccount() {
-        return account;
+    public Account getDitAccount() {
+        return ditAccount;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setDitAccount(Account ditAccount) {
+        this.ditAccount = ditAccount;
     }
 
-    public Klant getKlant() {
-        return klant;
+    public Klant getDezeKlant() {
+        return dezeKlant;
     }
 
-    public void setKlant(Klant klant) {
-        this.klant = klant;
+    public void setDezeKlant(Klant dezeKlant) {
+        this.dezeKlant = dezeKlant;
     }
 
     public int getKlantID() {
