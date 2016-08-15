@@ -5,9 +5,9 @@
  */
 package beans;
 
-import entity.Adres;
+//import entity.Adres;
 import entity.Klant;
-import entity.KlantAdres;
+//import entity.KlantAdres;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
