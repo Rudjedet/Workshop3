@@ -81,18 +81,6 @@ public class AccountBean {
         setDitAccount(account);
         return "editaccount";
     }
-
-    /*Onderstaande moet in resp. KlantBean en AdresBean    
-    public String gaNaarEditKlantGegevens(Klant klant) {
-        setDezeKlant(klant); 
-        return "editklant";
-    }
-    
-    public String gaNaarEditAdresGegevens(Adres adres) {
-        setDitAdres(adres);
-        return "editadres";
-    }
-    */
     
     public void verwijderAccount() {
         acFacade.remove(ditAccount);

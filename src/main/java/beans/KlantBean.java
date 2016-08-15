@@ -64,6 +64,11 @@ public class KlantBean implements Serializable {
         dezeKlant = new Klant();
     }
     
+    public String gaNaarEditKlantGegevens(Klant klant) {
+        setDezeKlant(klant);
+        return "editklant";
+    }
+    
     @OneToMany(mappedBy="adres, bestelling", orphanRemoval=true)
     public void verwijderKlant() {
         kFacade.remove(dezeKlant);

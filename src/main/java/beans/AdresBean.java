@@ -78,6 +78,11 @@ public class AdresBean {
         ditAdres = new Adres();
     }
     
+    public String gaNaarEditAdresGegevens(Adres adres) {
+        setDitAdres(adres);
+        return "editadres";
+    }
+    
     @OneToMany(mappedBy="klant", orphanRemoval=true)
     public void verwijderAdres() {
         adFacade.remove(ditAdres);
