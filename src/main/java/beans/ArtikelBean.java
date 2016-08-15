@@ -25,13 +25,14 @@ import session.ArtikelFacade;
 @Named
 public class ArtikelBean {
     
-     private Artikel artikel;
+     private Artikel ditArtikel;
      private List<Artikel> artikelLijst;
+     
      @EJB
      private ArtikelFacade arFacade;
      
      public ArtikelBean() {
-         artikel = new Artikel();
+         ditArtikel = new Artikel();
      }
 
     @PostConstruct
@@ -43,8 +44,8 @@ public class ArtikelBean {
     * CRUD methodes
     */ 
     public void maakNieuwArtikel() {
-        arFacade.create(artikel);
-        artikelLijst.add(artikel);
+        arFacade.create(ditArtikel);
+        artikelLijst.add(ditArtikel);
     } 
      
     public void leesAlleArtikelen() {
@@ -52,13 +53,18 @@ public class ArtikelBean {
     }
     
     public void editArtikel() {
-        arFacade.edit(artikel);
-        artikel = new Artikel();
+        arFacade.edit(ditArtikel);
+        ditArtikel = new Artikel();
+    }
+    
+    public String gaNaarEditArtikel(Artikel artikel) {
+        setDitArtikel(artikel);
+        return "editartikel";
     }
       
     public void verwijderArtikel() {
-        arFacade.remove(artikel);
-        artikelLijst.remove(artikel);
+        arFacade.remove(ditArtikel);
+        artikelLijst.remove(ditArtikel);
     }
      
     /*
@@ -72,11 +78,11 @@ public class ArtikelBean {
         this.artikelLijst = artikelLijst;
     }
     
-    public Artikel getArtikel() {
-        return artikel;
+    public Artikel getDitArtikel() {
+        return ditArtikel;
     }
 
-    public void setArtikel(Artikel artikel) {
-        this.artikel = artikel;
+    public void setDitArtikel(Artikel ditArtikel) {
+        this.ditArtikel = ditArtikel;
     }
 }

@@ -5,6 +5,7 @@
  */
 package beans;
 
+import entity.Artikel;
 import entity.BesteldArtikel;
 import entity.Bestelling;
 import java.util.ArrayList;
@@ -15,7 +16,6 @@ import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import session.BesteldArtikelFacade;
 import session.BestellingFacade;
 
@@ -29,7 +29,8 @@ import session.BestellingFacade;
 @Named
 public class BestellingBean {
     
-    private Bestelling bestelling;
+    private Bestelling dezeBestelling;
+    private Artikel ditArtikel;
     private List<Bestelling> alleBestellingen;
     private List<BesteldArtikel> besteldeArtikelen;
     private Double totaalBedrag;
@@ -40,7 +41,7 @@ public class BestellingBean {
     private BesteldArtikelFacade baFacade;
     
     public BestellingBean() {
-        bestelling = new Bestelling();
+        dezeBestelling = new Bestelling();
         totaalBedrag = new Double(0);
     }
     
@@ -53,9 +54,26 @@ public class BestellingBean {
     * CRUD methodes
     */
     public void maakNieuweBestelling() {
-        bFacade.create(bestelling);
-        //TODO: voeg artikelen toe aan bestelling
-        alleBestellingen.add(bestelling);
+        bFacade.create(dezeBestelling);
+        alleBestellingen.add(dezeBestelling);
+    }
+    
+    public void voegArtikelToeAanBestelling(Artikel artikel) {
+        BesteldArtikel bA = new BesteldArtikel();
+        bA.setArtikel(artikel);
+        bA.setBestelling(dezeBestelling);
+        baFacade.create(bA);
+        besteldeArtikelen.add(bA);
+        dezeBestelling = new Bestelling();
+    }
+    
+    public void verwijderUitBesteldeArtikelen(BesteldArtikel bar) {
+        baFacade.remove(bar);
+        setBesteldeArtikelen(baFacade.findBesteldeArtikelen(dezeBestelling.getBestellingId()));
+    }
+    
+    public void verwijderArtikelUitBestelling(BesteldArtikel bestArtikel) {
+        verwijderUitBesteldeArtikelen(bestArtikel);
     }
     
     public void leesAlleBestellingen() {
@@ -63,31 +81,37 @@ public class BestellingBean {
     }
     
     public void editBestelling() {
-        //TODO: voeg artikelen toe 
-        //TODO: verwijder artikelen
-        bFacade.edit(bestelling);
-        bestelling = new Bestelling();
+        bFacade.edit(dezeBestelling);
+        dezeBestelling = new Bestelling();
     }
     
     @OneToMany(mappedBy="klant", orphanRemoval=true)
     public void verwijderBestelling() {
-        bFacade.remove(bestelling);
-        alleBestellingen.remove(bestelling);
+        bFacade.remove(dezeBestelling);
+        alleBestellingen.remove(dezeBestelling);
     }
     
-    //TODO: public void verwijderArtikelUitBestelling() {
+    public void berekenTotaalBedrag() {
+        List<BesteldArtikel> artikelenInDezeBestelling = getBesteldeArtikelen();
+        double totaalBedrag = 0;
+        
+        for(BesteldArtikel bA : artikelenInDezeBestelling) {
+            //totaalBedrag += bA.getBesteldArtikelId().getArtikelprijs() * bA.getAantal();
+            //^cannot find getArtikelprijs methode???
+        }
+        
+        setTotaalBedrag(totaalBedrag);
+    }
     
-    //TODO: public void 
-
     /*
     * Getters & Setters
     */
-    public Bestelling getBestelling() {
-        return bestelling;
+    public Bestelling getDezeBestelling() {
+        return dezeBestelling;
     }
 
-    public void setBestelling(Bestelling bestelling) {
-        this.bestelling = bestelling;
+    public void setDezeBestelling(Bestelling dezeBestelling) {
+        this.dezeBestelling = dezeBestelling;
     }
 
     public List<Bestelling> getAlleBestellingen() {
