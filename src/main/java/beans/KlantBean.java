@@ -29,9 +29,9 @@ import session.KlantFacade;
 @Named
 public class KlantBean implements Serializable {
     
-    private Klant klant;
+    private Klant dezeKlant;
     private List<Klant> klantGegevens;
-    private Adres adres;
+    private Adres ditAdres;
     private KlantAdres klad;
     private List<KlantAdres> kladLijst;
     
@@ -39,7 +39,7 @@ public class KlantBean implements Serializable {
     private KlantFacade kFacade;
     
     public KlantBean() {
-        klant = new Klant();
+        dezeKlant = new Klant();
     }
     
     @PostConstruct
@@ -51,8 +51,8 @@ public class KlantBean implements Serializable {
     * CRUD methodes
     */
     public void maakNieuweKlant() {
-        kFacade.create(klant);
-        klantGegevens.add(klant);
+        kFacade.create(dezeKlant);
+        klantGegevens.add(dezeKlant);
     }
     
     public void leesAlleKlanten() {
@@ -60,25 +60,25 @@ public class KlantBean implements Serializable {
     }
     
     public void editKlant() {
-        kFacade.edit(klant);
-        klant = new Klant();
+        kFacade.edit(dezeKlant);
+        dezeKlant = new Klant();
     }
     
     @OneToMany(mappedBy="adres, bestelling", orphanRemoval=true)
     public void verwijderKlant() {
-        kFacade.remove(klant);
+        kFacade.remove(dezeKlant);
         //DONE: verwijder orphaned adressen en bestellingen - needs testing
     } 
     
     /*
     * Getters & Setters
     */
-    public Klant getKlant() {
-        return klant;
+    public Klant getDezeKlant() {
+        return dezeKlant;
     }
 
-    public void setKlant(Klant klant) {
-        this.klant = klant;
+    public void setDezeKlant(Klant dezeKlant) {
+        this.dezeKlant = dezeKlant;
     }
 
     public List<Klant> getKlantGegevens() {
