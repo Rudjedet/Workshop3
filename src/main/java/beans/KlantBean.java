@@ -31,9 +31,9 @@ public class KlantBean implements Serializable {
     
     private Klant dezeKlant;
     private List<Klant> klantGegevens;
-    private Adres ditAdres;
-    private KlantAdres klad;
-    private List<KlantAdres> kladLijst;
+    //private Adres ditAdres;
+    //private KlantAdres klad;
+    //private List<KlantAdres> kladLijst;
     
     @EJB
     private KlantFacade kFacade;

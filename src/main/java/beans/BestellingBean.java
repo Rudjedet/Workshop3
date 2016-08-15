@@ -30,7 +30,7 @@ import session.BestellingFacade;
 public class BestellingBean {
     
     private Bestelling dezeBestelling;
-    private Artikel ditArtikel;
+    //private Artikel ditArtikel;
     private List<Bestelling> alleBestellingen;
     private List<BesteldArtikel> besteldeArtikelen;
     private Double totaalBedrag;
