@@ -28,7 +28,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(name = "BesteldArtikel.findAll", query = "SELECT b FROM BesteldArtikel b"),
     @NamedQuery(name = "BesteldArtikel.findByBesteldArtikelid", query = "SELECT b FROM BesteldArtikel b WHERE b.besteldArtikelId = :besteldArtikelId"),
-    @NamedQuery(name = "BesteldArtikel.findByBestellingIdbestelling", query = "SELECT b FROM BesteldArtikel b WHERE b.bestelling = :bestelling")})
+    @NamedQuery(name = "BesteldArtikel.findByBestellingIdbestelling", query = "SELECT b FROM BesteldArtikel b WHERE b.bestelling.bestellingId = :bestellingId")})
 public class BesteldArtikel implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,11 +42,11 @@ public class BesteldArtikel implements Serializable {
     @Column(name = "aantal")
     private Integer aantal;
     
-    @JoinColumn(name = "artikel_idartikel", referencedColumnName = "artikel_id", insertable = false, updatable = false)
+    @JoinColumn(name = "artikel_idartikel", referencedColumnName = "artikel_id")
     @ManyToOne(optional = false)
     private Artikel artikel;
     
-    @JoinColumn(name = "bestelling_idbestelling", referencedColumnName = "bestelling_id", insertable = false, updatable = false)
+    @JoinColumn(name = "bestelling_idbestelling", referencedColumnName = "bestelling_id")
     @ManyToOne(optional = false)
     private Bestelling bestelling;
 

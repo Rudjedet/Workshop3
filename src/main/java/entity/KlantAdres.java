@@ -27,8 +27,8 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(name = "KlantAdres.findAll", query = "SELECT k FROM KlantAdres k"),
     @NamedQuery(name = "KlantAdres.findByKlantAdresid", query = "SELECT k FROM KlantAdres k WHERE k.klantAdresId = :klantAdresId"),
-    @NamedQuery(name = "KlantAdres.findByKlantIdklant", query = "SELECT k FROM KlantAdres k WHERE k.klant = :klant"),
-    @NamedQuery(name = "KlantAdres.findByAdresIdadres", query = "SELECT k FROM KlantAdres k WHERE k.adres = :adres")})
+    @NamedQuery(name = "KlantAdres.findByKlantIdklant", query = "SELECT k FROM KlantAdres k WHERE k.klant.klantId = :klantId"), //k.klant = :klant
+    @NamedQuery(name = "KlantAdres.findByAdresIdadres", query = "SELECT k FROM KlantAdres k WHERE k.adres.adresId = :adresId")}) //k.adres = :adres
 
 public class KlantAdres implements Serializable {
 
@@ -40,7 +40,7 @@ public class KlantAdres implements Serializable {
     @Column(name = "klant_adresid")
     private Integer klantAdresId;
     
-    @JoinColumn(name = "adres_idadres", referencedColumnName = "adres_id", insertable = false, updatable = false)
+    @JoinColumn(name = "adres_idadres", referencedColumnName = "adres_id")
     @ManyToOne(optional = false)
     private Adres adres;
     
@@ -48,7 +48,7 @@ public class KlantAdres implements Serializable {
     @ManyToOne(optional = false)
     private AdresType adrestypeIdadrestype;
     
-    @JoinColumn(name = "klant_idklant", referencedColumnName = "klant_id", insertable = false, updatable = false)
+    @JoinColumn(name = "klant_idklant", referencedColumnName = "klant_id")
     @ManyToOne(optional = false)
     private Klant klant;
 
