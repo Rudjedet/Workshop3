@@ -9,7 +9,11 @@
         <p>Welkom, #{login.user}!</p>
         <h:link value="Ga door naar de webshop" outcome="/artikelen.xhtml" />
         <br />
+        <h:link value="Ga naar uw account" outcome="/account.xhtml" /> 
+        <!--Op basis van klant ID verkregen na inloggen - in account functie findById oder etwas-->
+        <br />
         <h:link value="Registreer een nieuwe klant" outcome="/registreren.xhtml" />
+        <br />
         <h:commandLink action ="#{login.logout}" value="Logout" />
     </h:body>
 </html>
