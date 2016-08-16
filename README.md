@@ -1,16 +1,23 @@
+BACKEND APPLICATIE
+
 LOGIN.XHTML
 
 * inlogfunctie --> verwijst naar INLOGGELUKT.XHTML
-* registratiefunctie --> verwijst naar REGISTREREN.XHTML
+* nieuwe klant --> verwijst naar REGISTREREN.XHTML
 
 REGISTREREN.XHTML
 
-* registratiefunctie (= aanmaak nieuwe klant + adres + account) --> verwijst naar INLOGGELUKT.XHTML
+* registratiefunctie (= aanmaak nieuwe klant + adres + account) --> verwijst naar REGISTRATIEGESLAAGD.XHTML
 
 INLOGGELUKT.XHTML
 
 * knop NAAR ARTIKELEN --> verwijst naar ARTIKELEN.XHTML
 * knop NAAR ACCOUNT --> verwijst naar ACCOUNT.XHTML
+
+REGISTRATIEGESLAAGD.XHTML
+
+* "Registratie geslaagd. Log hier in."
+* inlogfunctie --> verwijst naar INLOGGELUKT.XHTML
 
 ARTIKELEN.XHTML
 
