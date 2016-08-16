@@ -55,9 +55,10 @@ public class AdresBean {
     /*
     * CRUD methodes
     */
-    public void maakNieuwAdres() {
+    public String maakNieuwAdres() {
         adFacade.create(ditAdres);
         adresGegevens.add(ditAdres);
+        return "account";
     }
     
     public void voegAdresToeAanKlant(Adres adres) {

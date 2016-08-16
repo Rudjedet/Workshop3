@@ -50,9 +50,10 @@ public class KlantBean implements Serializable {
     /*
     * CRUD methodes
     */
-    public void maakNieuweKlant() {
+    public String maakNieuweKlant() {
         kFacade.create(dezeKlant);
         klantGegevens.add(dezeKlant);
+        return "account";
     }
     
     public void leesAlleKlanten() {
