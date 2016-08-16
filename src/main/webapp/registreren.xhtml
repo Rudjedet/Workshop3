@@ -7,7 +7,10 @@
     </h:head>
     <h:body>
         <h:form>
-            <h3>Voer een klant in:</h3>
+            <!--CRUD Functionality Test-->
+            <!--Dit moet zo veranderd worden dat alles tegelijkertijd ingevuld 
+            en in de juiste tabellen (incl. foreign key koppels) opgeslagen wordt.-->
+            <h3>Voer uw naam en emailadres in:</h3>
             <h:outputText value="Voornaam: " />
             <h:inputText id="voornaam" value="#{klantBean.dezeKlant.voornaam}" />
             <br />
@@ -25,7 +28,7 @@
         </h:form>
         <br />
         <h:form>
-            <h3>Voer een adres in:</h3>
+            <h3>Voer uw adres in:</h3>
             <h:outputText value="Straatnaam: " />
             <h:inputText id="straatnaam" value="#{adresBean.ditAdres.straatnaam}" />
             <br />
@@ -46,6 +49,19 @@
                              value="Opslaan" />
         </h:form>
         <br />
+        <h:form>
+            <h3>Voer uw accountgegevens in:</h3>
+            <h:outputText value="Username: " />
+            <h:inputText id="username" value="#{accountBean.ditAccount.username}" />
+            <br />
+            <br />
+            <h:outputText value="Wachtwoord: " />
+            <h:inputText id="wachtwoord" value="#{accountBean.ditAccount.wachtwoord}" />
+            <br />
+            <br />
+            <h:commandButton action="#{accountBean.maakNieuwAccount}" 
+                             value="Opslaan" />
+        </h:form>
     </h:body>
 </html>
 

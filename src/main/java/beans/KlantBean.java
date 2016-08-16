@@ -53,7 +53,7 @@ public class KlantBean implements Serializable {
     public String maakNieuweKlant() {
         kFacade.create(dezeKlant);
         klantGegevens.add(dezeKlant);
-        return "account";
+        return "registratieGeslaagd";
     }
     
     public void leesAlleKlanten() {
