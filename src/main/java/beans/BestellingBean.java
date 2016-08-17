@@ -81,6 +81,12 @@ public class BestellingBean {
         setAlleBestellingen(bFacade.findAll());
     }
     
+    //TODO: leesBestellingByKlantId() {}
+    
+    //TODO: leesBesteldeArtikelenInBestelling() {}
+    //methode die alle artikelen in een bestelling weergeeft als een lijst 
+    //die vervolgens in servlet gebruikt wordt
+    
     public void editBestelling() {
         bFacade.edit(dezeBestelling);
         dezeBestelling = new Bestelling();
