@@ -45,6 +45,7 @@ public class KlantBean implements Serializable {
     @PostConstruct
     public void init() {
         klantGegevens = new ArrayList<>();
+        leesAlleKlanten();
     }        
     
     /*

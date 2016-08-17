@@ -38,6 +38,7 @@ public class ArtikelBean {
     @PostConstruct
     public void init() {
         artikelLijst = new ArrayList<>();
+        leesAlleArtikelen();
     }
      
     /*

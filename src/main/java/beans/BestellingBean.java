@@ -48,6 +48,7 @@ public class BestellingBean {
     @PostConstruct
     public void init() {
         alleBestellingen = new ArrayList<>();
+        leesAlleBestellingen();
     }    
     
     /*

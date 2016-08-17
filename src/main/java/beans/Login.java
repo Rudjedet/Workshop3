@@ -71,7 +71,7 @@ public class Login implements Serializable {
                 (null, new FacesMessage //(FacesMessage.SEVERITY_WARN, 
                     ("De gebruikersnaam en/of het wachtwoord dat u heeft "
                             + "ingevoerd is onbekend. Probeer opnieuw."));
-            return "login";
+            return "login?faces-redirect=true";
         }
     }
     

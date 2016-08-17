@@ -51,6 +51,7 @@ public class AdresBean {
     @PostConstruct
     public void init() {
         adresGegevens = new ArrayList<>();
+        leesAlleAdressen();
     }
     /*
     * CRUD methodes

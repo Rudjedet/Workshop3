@@ -49,6 +49,7 @@ public class AccountBean {
     @PostConstruct
     public void init() {
         alleAccounts = new ArrayList<>();
+        leesAlleKlantAccounts();
     }
     
     /*
