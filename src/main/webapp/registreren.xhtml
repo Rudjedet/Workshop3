@@ -1,16 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>De Mummiefabriek - klantregistratie</title>
     </h:head>
     <h:body>
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                <h2>De Mummiefabriek</h2>
+            </p:layoutUnit>
+            
+            <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                © 2016 Khufu &amp; Dochters
+            </p:layoutUnit>
+            
+            <p:layoutUnit position="center">
         <h:form>
             <!--CRUD Functionality Test-->
             <!--Dit moet zo veranderd worden dat alles tegelijkertijd ingevuld 
             en in de juiste tabellen (incl. foreign key koppels) opgeslagen wordt.-->
-            <h3>Voer uw naam en emailadres in:</h3>
+            <h4>Voer uw naam en emailadres in:</h4>
             <h:outputText value="Voornaam: " />
             <h:inputText id="voornaam" value="#{klantBean.dezeKlant.voornaam}" />
             <br />
@@ -28,29 +40,7 @@
         </h:form>
         <br />
         <h:form>
-            <h3>Voer uw adres in:</h3>
-            <h:outputText value="Straatnaam: " />
-            <h:inputText id="straatnaam" value="#{adresBean.ditAdres.straatnaam}" />
-            <br />
-            <br />
-            <h:outputText value="Huisnummer: " />
-            <h:inputText id="huisnummer" value="#{adresBean.ditAdres.huisnummer}" />
-            <br />
-            <br />
-            <h:outputText value="Postcode: " />
-            <h:inputText id="postcode" value="#{adresBean.ditAdres.postcode}" />
-            <br />
-            <br />
-            <h:outputText value="Woonplaats: " />
-            <h:inputText id="woonplaats" value="#{adresBean.ditAdres.woonplaats}" />
-            <br />
-            <br />
-            <h:commandButton action="#{adresBean.maakNieuwAdres}" 
-                             value="Opslaan" />
-        </h:form>
-        <br />
-        <h:form>
-            <h3>Voer uw accountgegevens in:</h3>
+            <h4>Voer uw accountgegevens in:</h4>
             <h:outputText value="Username: " />
             <h:inputText id="username" value="#{accountBean.ditAccount.username}" />
             <br />
@@ -62,6 +52,8 @@
             <h:commandButton action="#{accountBean.maakNieuwAccount}" 
                              value="Opslaan" />
         </h:form>
+        </p:layoutUnit>
+        </p:layout>
     </h:body>
 </html>
 
