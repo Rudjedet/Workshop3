@@ -79,7 +79,7 @@ public class Login implements Serializable {
         HttpSession session = SessionUtils.getSession();
         session.invalidate();
         
-        return "login";
+        return "index";
     }
     
     public static boolean validate(String user, String password) {
