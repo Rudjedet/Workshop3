@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>De Mummiefabriek - accountregistratie</title>
+        <title>De Mummiefabriek - registratie voltooid</title>
     </h:head>
     <h:body>
         <p:layout fullPage="true">
@@ -19,10 +19,11 @@
 
             <p:layoutUnit position="center">
                 <p>De gegevens voor #{klantBean.dezeKlant.voornaam} #{klantBean.dezeKlant.achternaam} zijn opgeslagen.
-                <br />Het klantnummer voor deze klant is #{klantBean.dezeKlant.klantId}.
+                    <br />Het adres is #{adresBean.ditAdres.straatnaam} #{adresBean.ditAdres.huisnummer}, te #{adresBean.ditAdres.woonplaats}.
+                    <br />Het klantnummer voor deze klant is #{klantBean.dezeKlant.klantId}.
+                    <br />Het adresnummer voor deze klant is #{adresBean.ditAdres.adresId}.
                 </p>
-                <h:link value="Klik hier om de lijst van bestaande klanten in te zien." outcome="/klantaccounts.xhtml" />
-                <!--Of button to do the same-->
+                <h:commandButton action="#{klantBean.gaNaarKlantGegevens()}" value="alle klantgegevens" />
                 <br />
             </p:layoutUnit>
         </p:layout>

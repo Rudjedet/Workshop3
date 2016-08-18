@@ -54,11 +54,15 @@ public class KlantBean implements Serializable {
     public String maakNieuweKlant() {
         kFacade.create(dezeKlant);
         klantGegevens.add(dezeKlant);
-        return "registratieGeslaagd";
+        return "adresregistratie";
     }
     
     public void leesAlleKlanten() {
         setKlantGegevens(kFacade.findAll());
+    }
+    
+    public String gaNaarKlantGegevens() {
+        return "klantaccounts.xhtml?faces-redirect=true";
     }
     
     public void editKlant() {
