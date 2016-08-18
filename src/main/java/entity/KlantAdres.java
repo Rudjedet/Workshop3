@@ -74,7 +74,7 @@ public class KlantAdres implements Serializable {
     public void setAdres(Adres adres) {
         this.adres = adres;
     }
-
+ 
     public AdresType getAdrestypeIdadrestype() {
         return adrestypeIdadrestype;
     }

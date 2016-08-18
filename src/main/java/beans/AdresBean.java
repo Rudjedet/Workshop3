@@ -6,6 +6,7 @@
 package beans;
 
 import entity.Adres;
+import entity.AdresType;
 import entity.Klant;
 import entity.KlantAdres;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Named;
 import javax.persistence.OneToMany;
 import session.AdresFacade;
+import session.AdresTypeFacade;
 import session.KlantAdresFacade;
 import session.KlantFacade;
 
@@ -32,12 +34,15 @@ public class AdresBean {
     
     private Adres ditAdres;
     private Klant dezeKlant;
+    private AdresType hetAdrestype;
     private List<Adres> adresGegevens;
     private KlantAdres klantAdres;
     private List<KlantAdres> klantadressen;
     
     @EJB
     private AdresFacade adFacade;
+    @EJB
+    private AdresTypeFacade atFacade;
     @EJB
     private KlantFacade kFacade;
     @EJB
@@ -46,6 +51,7 @@ public class AdresBean {
     public AdresBean() {
         ditAdres = new Adres();
         dezeKlant = new Klant();
+        hetAdrestype = new AdresType();
     }
     
     @PostConstruct
@@ -59,16 +65,24 @@ public class AdresBean {
     public String maakNieuwAdres() {
         adFacade.create(ditAdres);
         adresGegevens.add(ditAdres);
+        voegAdresToeAanKlant(ditAdres);
         return "registratieGeslaagd";
     }
     
-    public void voegAdresToeAanKlant(Adres adres) {
+    public String voegAdresToeAanKlant(Adres adres) {
         KlantAdres kA = new KlantAdres();
-        kA.setAdres(adres);
+        setHetAdrestype(atFacade.find(hetAdrestype.getAdrestypeId()));
+        kA.setAdrestypeIdadrestype(hetAdrestype);
+        //kA.setAdres(adres);
         kA.setKlant(dezeKlant);
         kaFacade.create(kA);
         klantadressen.add(kA);
         ditAdres = new Adres();
+        hetAdrestype = new AdresType();
+        adFacade.create(ditAdres);
+        adresGegevens.add(ditAdres);
+        
+        return "registratieGeslaagd";
     }
     
     public void leesAlleAdressen() {
@@ -133,6 +147,14 @@ public class AdresBean {
 
     public void setKlantadressen(List<KlantAdres> klantadressen) {
         this.klantadressen = klantadressen;
+    }
+
+    public AdresType getHetAdrestype() {
+        return hetAdrestype;
+    }
+
+    public void setHetAdrestype(AdresType hetAdrestype) {
+        this.hetAdrestype = hetAdrestype;
     }
 }
   

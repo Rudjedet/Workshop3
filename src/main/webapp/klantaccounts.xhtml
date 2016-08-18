@@ -22,7 +22,6 @@
                 Welkom in het klantmenu. 
                 <br />
                 <br />
-                <!--later met specifieke gegevens ingelogde klant-->
                 <h:dataTable value="#{klantBean.klantGegevens}" var="k" border="1">
                     <h:column>
                         <f:facet name="header">Klant ID</f:facet>
@@ -47,22 +46,6 @@
                         <h:commandButton action="#{klantBean.verwijderKlant()}" value="verwijderen" />
                     </h:column>
                 </h:dataTable>
-                <br />
-                <br />
-                <!--Later met specifieke bestellingen ingelogde klant-->
-                <h:dataTable value="#{bestellingBean.alleBestellingen}" var="b" border="1">
-                    <h:column>
-                        <f:facet name="header">Bestelnummer</f:facet>
-                    #{b.bestellingId}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Klant</f:facet>
-                    #{b.klantIdklant}
-                    </h:column>
-                </h:dataTable>
-                <br />
-                <p:button value="Aanpassen" outcome="editbestelling" />
-                <br />
                 <br />
             </p:layoutUnit>
         </p:layout>

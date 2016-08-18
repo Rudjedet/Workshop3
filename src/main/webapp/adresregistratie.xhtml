@@ -41,8 +41,12 @@
                     <h:inputText id="woonplaats" value="#{adresBean.ditAdres.woonplaats}" />
                     <br />
                     <br />
-                    <h:commandButton action="#{adresBean.maakNieuwAdres}" 
-                                     value="Doorgaan" />
+                    <h:outputText value="Adrestype: " />
+                    <h:inputText id="adrestype" value="#{adresBean.hetAdrestype.adrestypeId}" />
+                    <br />
+                    <br />
+                    <h:commandButton action="#{adresBean.voegAdresToeAanKlant(adres)}" 
+                                     value="Registreer" />
                 </h:form>
                 <br />
             </p:layoutUnit>
