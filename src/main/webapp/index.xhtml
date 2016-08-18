@@ -28,29 +28,15 @@
         </div>
 
         <div id="indexIntroductieLinks">
-            <h1>Welkom bij de Mummiefabriek!</h1>
-            <!--<h:link value="Login!" outcome="/view/login.xhtml" />-->
+            <h1>Welkom bij de Mummiefabriek!
+                <br />
+                <br />
+            <h:link value="Klik hier om in te loggen" outcome="/login.xhtml" />
+            </h1>
         </div>
 
         <div id="indexInhoudMidden">
             
-            <!--<h:form>-->
-<!--            <h3>Inloggen bij De Mummiefabriek</h3>
-
-                <h:outputText value="Username" />
-                <h:inputText id="username" value="#{login.user}"></h:inputText>
-                <h:message for="username"></h:message>
-                <br />
-                <br />
-                <h:outputText value="Password" />
-                <h:inputSecret id="password" value="#{login.pwd}" />
-                <h:message for="password" />
-                <br />
-                <br />
-                <h:commandButton action="#{login.validateUsernamePassword}"
-                                 value="Login" />
-            </h:form>-->
-            <!--voor test, later inlogscherm-->
             <table id="productTable">
 
                 <c:forEach var="artikel" items="${artikelen}" varStatus="iter">

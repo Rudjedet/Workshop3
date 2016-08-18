@@ -19,4 +19,13 @@
                     <to-view-id>/loginError.xhtml</to-view-id>
                 </navigation-case>
 	</navigation-rule>
+        
+        <navigation-rule>
+            <description>index</description>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+                    <from-outcome>login</from-outcome>
+                    <to-view-id>/login.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>
