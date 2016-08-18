@@ -60,7 +60,7 @@ public class ArtikelBean {
     
     public String gaNaarEditArtikel(Artikel artikel) {
         setDitArtikel(artikel);
-        return "editartikel";
+        return "editartikel.xhtml?faces-redirect=true";
     }
       
     public void verwijderArtikel() {

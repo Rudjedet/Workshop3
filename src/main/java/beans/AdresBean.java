@@ -76,7 +76,7 @@ public class AdresBean {
         //kA.setAdres(adres);
         kA.setKlant(dezeKlant);
         kaFacade.create(kA);
-        klantadressen.add(kA);
+        klantadressen.add(kA); //EJB exception hier ??
         ditAdres = new Adres();
         hetAdrestype = new AdresType();
         adFacade.create(ditAdres);
