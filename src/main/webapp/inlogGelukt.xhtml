@@ -19,12 +19,10 @@
 
             <p:layoutUnit position="center">
                 <p>Welkom, #{login.user}!</p>
-                <h:link value="Ga door naar de webshop" outcome="/artikelen.xhtml" />
+                <h:link value="Ga naar de lijst artikelen op voorraad" outcome="/artikelen.xhtml" />
                 <br />
-                <!--Op basis van klant ID verkregen na inloggen - in account functie findById oder etwas-->
-                <h:link value="Ga naar uw account" outcome="/account.xhtml" /> 
-                <br />
-                <!--Later weghalen, nu voor testing purposes-->        
+                <h:link value="Ga naar de lijst klanten" outcome="/klantaccounts.xhtml" /> 
+                <br />      
                 <h:link value="Registreer een nieuwe klant" outcome="/registreren.xhtml" />
                 <br />
                 <br />

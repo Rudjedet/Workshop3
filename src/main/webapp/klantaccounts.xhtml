@@ -19,7 +19,7 @@
             </p:layoutUnit>
             
             <p:layoutUnit position="center">
-                Welkom, [klantnaam].
+                Welkom in het klantmenu. 
                 <br />
                 <br />
                 <!--later met specifieke gegevens ingelogde klant-->
@@ -40,9 +40,13 @@
                         <f:facet name="header">E-mail adres</f:facet>
                         #{k.emailadres}
                     </h:column>
+                    <h:column>
+                        <f:facet name="header">Handeling</f:facet>
+                        <h:commandButton action="#{klantBean.gaNaarEditKlantGegevens(klant)}" value="aanpassen" />
+                        <br />
+                        <h:commandButton action="#{klantBean.verwijderKlant()}" value="verwijderen" />
+                    </h:column>
                 </h:dataTable>
-                <br />
-                <p:button value="Aanpassen" outcome="editklant" />
                 <br />
                 <br />
                 <!--Later met specifieke bestellingen ingelogde klant-->

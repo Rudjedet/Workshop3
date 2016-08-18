@@ -68,7 +68,7 @@ public class KlantBean implements Serializable {
     
     public String gaNaarEditKlantGegevens(Klant klant) {
         setDezeKlant(klant);
-        return "editklant";
+        return "editklant.xhtml?faces-redirect=true";
     }
     
     @OneToMany(mappedBy="adres, bestelling", orphanRemoval=true)

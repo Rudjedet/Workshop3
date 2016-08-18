@@ -21,11 +21,18 @@
 	</navigation-rule>
         
         <navigation-rule>
-            <description>index</description>
-		<from-view-id>/index.xhtml</from-view-id>
+            <description>edit klant</description>
+		<from-view-id>/account.xhtml</from-view-id>
 		<navigation-case>
-                    <from-outcome>login</from-outcome>
-                    <to-view-id>/login.xhtml</to-view-id>
+                    <from-action>#{klantBean.gaNaarEditKlantGegevens}</from-action>
+                    <from-outcome>aanpassen</from-outcome>
+                    <to-view-id>/editklant.xhtml</to-view-id>
 		</navigation-case>
+                
+                <navigation-case>
+                    <from-action>#{klantBean.gaNaarEditKlantGegevens}</from-action>
+                    <from-outcome>error</from-outcome>
+                    <to-view-id>/error.xhtml</to-view-id>
+                </navigation-case>
 	</navigation-rule>
 </faces-config>
