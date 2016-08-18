@@ -64,14 +64,14 @@ public class Login implements Serializable {
         if (valid) {
             HttpSession session = SessionUtils.getSession();
             session.setAttribute("username", user);
-            return "inlogGelukt?faces-redirect=true";
+            return "inlogGelukt.xhtml?faces-redirect=true";
         }
         else {
-            FacesContext.getCurrentInstance().addMessage
-                (null, new FacesMessage //(FacesMessage.SEVERITY_WARN, 
-                    ("De gebruikersnaam en/of het wachtwoord dat u heeft "
-                            + "ingevoerd is onbekend. Probeer opnieuw."));
-            return "login?faces-redirect=true";
+//            FacesContext.getCurrentInstance().addMessage
+//                (null, new FacesMessage //(FacesMessage.SEVERITY_WARN, 
+//                    ("De gebruikersnaam en/of het wachtwoord dat u heeft "
+//                            + "ingevoerd is onbekend. Probeer opnieuw."));
+            return "loginError.xhtml?faces-redirect=true";
         }
     }
     
@@ -79,7 +79,7 @@ public class Login implements Serializable {
         HttpSession session = SessionUtils.getSession();
         session.invalidate();
         
-        return "index";
+        return "login.xhtml?faces-redirect=true"; //later vervangen met index
     }
     
     public static boolean validate(String user, String password) {

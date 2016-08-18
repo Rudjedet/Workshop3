@@ -5,11 +5,18 @@
 	http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
 	<navigation-rule>
-		<from-view-id>/view/login.xhtml</from-view-id>
+            <description>login geslaagd</description>
+		<from-view-id>/login.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>inlogGelukt</from-outcome>
-			<to-view-id>/view/inlogGelukt.xhtml</to-view-id>
+                    <from-action>#{login.user}</from-action>
+                    <from-outcome>inlogGelukt</from-outcome>
+                    <to-view-id>/inlogGelukt.xhtml</to-view-id>
 		</navigation-case>
+                
+                <navigation-case>
+                    <from-action>#{login.user}</from-action>
+                    <from-outcome>loginError</from-outcome>
+                    <to-view-id>/loginError.xhtml</to-view-id>
+                </navigation-case>
 	</navigation-rule>
-
 </faces-config>
