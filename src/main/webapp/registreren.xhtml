@@ -21,7 +21,9 @@
         <h:form>
             <!--CRUD Functionality Test-->
             <!--Dit moet zo veranderd worden dat alles tegelijkertijd ingevuld 
-            en in de juiste tabellen (incl. foreign key koppels) opgeslagen wordt.-->
+            en in de juiste tabellen (incl. foreign key koppels) opgeslagen wordt.
+            Of verder gaan op nieuwe pagina met gebruik van zojuist gegenereerde
+            klant ID om het account te koppelen?-->
             <h4>Voer uw naam en emailadres in:</h4>
             <h:outputText value="Voornaam: " />
             <h:inputText id="voornaam" value="#{klantBean.dezeKlant.voornaam}" />
@@ -36,21 +38,7 @@
             <br />
             <br />
             <h:commandButton action="#{klantBean.maakNieuweKlant}" 
-                             value="Opslaan" />
-        </h:form>
-        <br />
-        <h:form>
-            <h4>Voer uw accountgegevens in:</h4>
-            <h:outputText value="Username: " />
-            <h:inputText id="username" value="#{accountBean.ditAccount.username}" />
-            <br />
-            <br />
-            <h:outputText value="Wachtwoord: " />
-            <h:inputText id="wachtwoord" value="#{accountBean.ditAccount.wachtwoord}" />
-            <br />
-            <br />
-            <h:commandButton action="#{accountBean.maakNieuwAccount}" 
-                             value="Opslaan" />
+                             value="Doorgaan" />
         </h:form>
         </p:layoutUnit>
         </p:layout>
