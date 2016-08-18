@@ -17,7 +17,7 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Named;
 import session.AccountFacade;
 //import session.KlantAdresFacade;
-//import session.KlantFacade;
+import session.KlantFacade;
 
 /**
  *
@@ -31,12 +31,13 @@ public class AccountBean {
     
     private Account ditAccount;
     private Klant dezeKlant;
-    private int klantID;
+    private Integer klantId;
     private List<Account> alleAccounts;
+    
     @EJB
     private AccountFacade acFacade;
-    //@EJB
-    //private KlantFacade kFacade;
+    @EJB
+    private KlantFacade kFacade;
     //@EJB
     //private KlantAdresFacade kaFacade;
     
@@ -55,12 +56,14 @@ public class AccountBean {
     /*
     * CRUD methodes
     */
-    public void maakNieuwAccount() {
-        dezeKlant = new Klant();
-        dezeKlant.setKlantId(klantID);
+    public String maakNieuwAccount() {
+        //dezeKlant = new Klant();
+        klantId = dezeKlant.getKlantId();
+        ditAccount.setKlantIdklant(dezeKlant);
         ditAccount.setAanmaakdatum(new Date());
         acFacade.create(ditAccount);
         alleAccounts.add(ditAccount);
+        return "login";
     }
     
     public void leesAlleKlantAccounts() {
@@ -107,12 +110,12 @@ public class AccountBean {
         this.dezeKlant = dezeKlant;
     }
 
-    public int getKlantID() {
-        return klantID;
+    public int getKlantId() {
+        return klantId;
     }
 
-    public void setKlantID(int klantID) {
-        this.klantID = klantID;
+    public void setKlantId(int klantId) {
+        this.klantId = klantId;
     }
 
     public List<Account> getAlleAccounts() {
