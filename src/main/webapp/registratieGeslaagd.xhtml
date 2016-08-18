@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>De Mummiefabriek - registratie geslaagd</title>
+        <title>De Mummiefabriek - accountregistratie</title>
     </h:head>
     <h:body>
         <p:layout fullPage="true">
@@ -18,8 +18,22 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="center">
-                <p>Uw registratie is geslaagd, #{klantBean.dezeKlant.voornaam}! Welkom bij De MummieFabriek</p>
-                <h:link value="Klik hier om in te loggen met uw nieuwe account." outcome="/login.xhtml" />
+                <p>Uw gegevens zijn opgeslagen, #{klantBean.dezeKlant.voornaam}!</p>
+                Nu kunt u een username en wachtwoord kiezen om van alle functionaliteit van de Mummiefabriek gebruik te kunnen maken.
+                <br />
+                <br />
+                <h:form>
+                    <h:outputText value="Username: " />
+                    <h:inputText id="username" value="#{accountBean.ditAccount.username}" />
+                    <br />
+                    <br />
+                    <h:outputText value="Wachtwoord: " />
+                    <h:inputText id="wachtwoord" value="#{accountBean.ditAccount.wachtwoord}" />
+                    <br />
+                    <br />
+                    <h:commandButton action="#{accountBean.maakNieuwAccount}" 
+                                     value="Opslaan" />
+                </h:form>
                 <br />
             </p:layoutUnit>
         </p:layout>
