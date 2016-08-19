@@ -8,6 +8,7 @@ package beans;
 import entity.Artikel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -47,6 +48,7 @@ public class ArtikelBean {
     public String maakNieuwArtikel() {
         arFacade.create(ditArtikel);
         artikelLijst.add(ditArtikel);
+
         return "succes";
     } 
      
@@ -54,9 +56,11 @@ public class ArtikelBean {
         setArtikelLijst(arFacade.findAll());
     }
     
-    public void editArtikel() {
+    public String editArtikel() {
         arFacade.edit(ditArtikel);
         ditArtikel = new Artikel();
+        
+        return "succes.xhtml?faces-redirect=true";
     }
     
     public String gaNaarEditArtikel(Artikel artikel) {
@@ -69,9 +73,23 @@ public class ArtikelBean {
         return "nieuwartikel.xhtml?faces-redirect=true";
     }
       
-    public void verwijderArtikel() {
-        arFacade.remove(ditArtikel);
-        artikelLijst.remove(ditArtikel);
+    public String verwijderArtikel(Artikel artikel) {
+        //arFacade.remove(ditArtikel);
+        //artikelLijst.remove(ditArtikel);
+        
+        int aLSize = artikelLijst.size();
+        int index = -1;
+        
+        for (int i = 0; i < aLSize; i++) {
+            if(Objects.equals(artikelLijst.get(i).getArtikelId(), artikel.getArtikelId())) {
+                index = i;
+            }
+        }
+        if (index != 1) {
+            arFacade.remove(artikelLijst.get(index));
+            artikelLijst.remove(index);
+        }
+        return "succes";
     }
      
     /*

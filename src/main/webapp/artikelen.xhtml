@@ -46,7 +46,7 @@
                         <f:facet name="header">Handeling</f:facet>
                         <p:commandButton action="#{artikelBean.gaNaarEditArtikel(artikel)}" value="aanpassen " ajax="false" />
                         <br />
-                        <p:commandButton action="#{artikelBean.verwijderArtikel()}" value="verwijderen" />
+                        <p:commandButton action="#{artikelBean.verwijderArtikel(artikel)}" value="verwijderen" ajax="false" />
                     </p:column>
                 </p:dataTable>
                     <br />

@@ -21,8 +21,27 @@
                 <p:menubar>
                     <p:menuitem value="Hoofdmenu" url="inlogGelukt.xhtml" />
                 </p:menubar>
-                <br />
-                [ content ]
+                <h:form>
+                    <br />
+                    Voer hier de nieuwe gegevens in van het artikel dat u wenst aan te passen:              
+                    <br />
+                    <br />
+                    <h:outputText value="Artikel: " />
+                    <h:inputText id="artikelnaam" value="#{artikelBean.ditArtikel.artikelnaam}" />
+                    <br />
+                    <br />
+                    <h:outputText value="Prijs: " /> 
+                    <h:inputText id="artikelprijs" value="#{artikelBean.ditArtikel.artikelprijs}" />
+                    <br />
+                    <br />
+                    <h:outputText value="Voorraad: " />
+                    <h:inputText id="artikelvoorraad" value="#{artikelBean.ditArtikel.artikelvoorraad}" />
+                    <br />
+                    <br />
+                    <p:commandButton action="#{artikelBean.editArtikel}" 
+                                     value="Wijzigingen doorvoeren" 
+                                     ajax="false" />
+                </h:form>
             </p:layoutUnit>
         </p:layout>
     </h:body>
