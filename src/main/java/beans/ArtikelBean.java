@@ -44,9 +44,10 @@ public class ArtikelBean {
     /*
     * CRUD methodes
     */ 
-    public void maakNieuwArtikel() {
+    public String maakNieuwArtikel() {
         arFacade.create(ditArtikel);
         artikelLijst.add(ditArtikel);
+        return "succes.xhtml?faces-redirect=true";
     } 
      
     public void leesAlleArtikelen() {
@@ -61,6 +62,11 @@ public class ArtikelBean {
     public String gaNaarEditArtikel(Artikel artikel) {
         setDitArtikel(artikel);
         return "editartikel.xhtml?faces-redirect=true";
+    }
+    
+    public String gaNaarNieuwArtikel(Artikel artikel) {
+        setDitArtikel(artikel);
+        return "nieuwartikel.xhtml?faces-redirect=true";
     }
       
     public void verwijderArtikel() {

@@ -20,30 +20,34 @@
             </p:layoutUnit>
             
             <p:layoutUnit position="center">
-                <h:dataTable value="#{artikelBean.artikelLijst}" var="a" border="1">
-                    <h:column>
+                <h:form>
+                <p:dataTable value="#{artikelBean.artikelLijst}" var="a">
+                    <p:column>
                         <f:facet name="header">Artikelnummer</f:facet>
                     #{a.artikelId}
-                    </h:column>
-                    <h:column>
+                    </p:column>
+                    <p:column>
                         <f:facet name="header">Omschrijving</f:facet>
                     #{a.artikelnaam}
-                    </h:column>
-                    <h:column>
+                    </p:column>
+                    <p:column>
                         <f:facet name="header">Prijs</f:facet>
                         &euro; #{a.artikelprijs}
-                    </h:column>
-                    <h:column>
+                    </p:column>
+                    <p:column>
                         <f:facet name="header">Voorraad</f:facet>
                         #{a.artikelvoorraad} stuks
-                    </h:column>
-                    <h:column>
+                    </p:column>
+                    <p:column>
                         <f:facet name="header">Handeling</f:facet>
-                        <h:commandButton action="#{artikelBean.gaNaarEditArtikel(artikel)}" value="aanpassen " />
+                        <p:commandButton action="#{artikelBean.gaNaarEditArtikel(artikel)}" value="aanpassen " ajax="false" />
                         <br />
-                        <h:commandButton action="#{artikelBean.verwijderArtikel()}" value="verwijderen" />
-                    </h:column>
-                </h:dataTable>
+                        <p:commandButton action="#{artikelBean.verwijderArtikel()}" value="verwijderen" />
+                    </p:column>
+                </p:dataTable>
+                    <br />
+                    <center><p:commandButton action="#{artikelBean.gaNaarNieuwArtikel(artikel)}" value="voeg een nieuw artikel toe aan de database" ajax="false" /></center>
+                </h:form>
             </p:layoutUnit>
         </p:layout>
     </h:body>

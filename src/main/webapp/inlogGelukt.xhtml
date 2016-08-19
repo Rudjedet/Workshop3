@@ -18,15 +18,23 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="center">
+                <h:form>
+                <p:menubar>
+                    <p:menuitem value="Artikelen op voorraad" url="artikelen.xhtml" />
+                    <p:menuitem value="Klanten in het systeem" url="klantaccounts.xhtml" />
+                    <p:menuitem value="Registreer een nieuwe klant" url="registreren.xhtml" />
+                    <p:menuitem value="Logout" action="#{login.logout()}" ajax="false" />
+                </p:menubar>
                 <p>Welkom, #{login.user}!</p>
-                <h:link value="Bekijk hier de artikelen die op dit moment op voorraad zijn" outcome="/artikelen.xhtml" />
+<!--            <h:link value="Bekijk hier de artikelen die op dit moment op voorraad zijn" outcome="/artikelen.xhtml" />
                 <br />
                 <h:link value="Bekijk hier de klanten die in het systeem staan" outcome="/klantaccounts.xhtml" /> 
                 <br />      
                 <h:link value="Registreer een nieuwe klant in het systeem" outcome="/registreren.xhtml" />
                 <br />
-                <br />
-                <h:commandButton action ="#{login.logout}" value="logout" />
+                <br />-->
+                <p:commandButton action ="#{login.logout}" value="logout" ajax="false" />
+                </h:form>
             </p:layoutUnit>
         </p:layout>
     </h:body>
