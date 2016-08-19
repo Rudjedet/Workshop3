@@ -47,7 +47,7 @@ public class ArtikelBean {
     public String maakNieuwArtikel() {
         arFacade.create(ditArtikel);
         artikelLijst.add(ditArtikel);
-        return "succes.xhtml?faces-redirect=true";
+        return "succes";
     } 
      
     public void leesAlleArtikelen() {

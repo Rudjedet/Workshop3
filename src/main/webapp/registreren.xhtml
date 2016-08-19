@@ -12,30 +12,34 @@
             <p:layoutUnit position="north" size="80" resizable="true" closable="true" collapsible="true">
                 <h2>De Mummiefabriek</h2>
             </p:layoutUnit>
-            
+
             <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
                 © 2016 Khufu &amp; Dochters
             </p:layoutUnit>
-            
+
             <p:layoutUnit position="center">
-        <h:form>
-            <h4>Voer de klantgegevens in:</h4>
-            <h:outputText value="Voornaam: " />
-            <h:inputText id="voornaam" value="#{klantBean.dezeKlant.voornaam}" />
-            <br />
-            <br />
-            <h:outputText value="Achternaam: " />
-            <h:inputText id="achternaam" value="#{klantBean.dezeKlant.achternaam}" />
-            <br />
-            <br />
-            <h:outputText value="Emailadres: " />
-            <h:inputText id="emailadres" value="#{klantBean.dezeKlant.emailadres}" />
-            <br />
-            <br />
-            <h:commandButton action="#{klantBean.maakNieuweKlant}" 
-                             value="Doorgaan" />
-        </h:form>
-        </p:layoutUnit>
+                <h:form>
+                    <p:menubar>
+                        <p:menuitem value="Hoofdmenu" url="inlogGelukt.xhtml" />
+                    </p:menubar>
+                    <br />
+                    <h4>Voer de klantgegevens in:</h4>
+                    <h:outputText value="Voornaam: " />
+                    <h:inputText id="voornaam" value="#{klantBean.dezeKlant.voornaam}" />
+                    <br />
+                    <br />
+                    <h:outputText value="Achternaam: " />
+                    <h:inputText id="achternaam" value="#{klantBean.dezeKlant.achternaam}" />
+                    <br />
+                    <br />
+                    <h:outputText value="Emailadres: " />
+                    <h:inputText id="emailadres" value="#{klantBean.dezeKlant.emailadres}" />
+                    <br />
+                    <br />
+                    <h:commandButton action="#{klantBean.maakNieuweKlant}" 
+                                     value="Doorgaan" />
+                </h:form>
+            </p:layoutUnit>
         </p:layout>
     </h:body>
 </html>

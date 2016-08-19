@@ -21,6 +21,10 @@
             
             <p:layoutUnit position="center">
                 <h:form>
+                <p:menubar>
+                    <p:menuitem value="Hoofdmenu" url="inlogGelukt.xhtml" />
+                </p:menubar>
+                <br />
                 <p:dataTable value="#{artikelBean.artikelLijst}" var="a">
                     <p:column>
                         <f:facet name="header">Artikelnummer</f:facet>

@@ -17,36 +17,38 @@
             <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
                 © 2016 Khufu &amp; Dochters
             </p:layoutUnit>
-            
+
             <p:layoutUnit position="center">
-                Welkom in het klantmenu. 
-                <br />
-                <br />
-                <h:dataTable value="#{klantBean.klantGegevens}" var="k" border="1">
-                    <h:column>
-                        <f:facet name="header">Klant ID</f:facet>
-                    #{k.klantId}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Voornaam</f:facet>
-                    #{k.voornaam}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Achternaam</f:facet>
-                        #{k.achternaam}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">E-mail adres</f:facet>
-                        #{k.emailadres}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Handeling</f:facet>
-                        <h:commandButton action="#{klantBean.gaNaarEditKlantGegevens(klant)}" value="aanpassen " />
-                        <br />
-                        <h:commandButton action="#{klantBean.verwijderKlant()}" value="verwijderen" />
-                    </h:column>
-                </h:dataTable>
-                <br />
+                <h:form>
+                    <p:menubar>
+                        <p:menuitem value="Hoofdmenu" url="inlogGelukt.xhtml" />
+                    </p:menubar>
+                    <br />
+                    <p:dataTable value="#{klantBean.klantGegevens}" var="k">
+                        <p:column>
+                            <f:facet name="header">Klant ID</f:facet>
+                                #{k.klantId}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Voornaam</f:facet>
+                                #{k.voornaam}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Achternaam</f:facet>
+                                #{k.achternaam}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">E-mail adres</f:facet>
+                                #{k.emailadres}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Handeling</f:facet>
+                            <p:commandButton action="#{klantBean.gaNaarEditKlantGegevens(klant)}" value="aanpassen " ajax="false" />
+                            <br />
+                            <p:commandButton action="#{klantBean.verwijderKlant()}" value="verwijderen" />
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
             </p:layoutUnit>
         </p:layout>
     </h:body>

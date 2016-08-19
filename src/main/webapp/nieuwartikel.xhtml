@@ -19,26 +19,28 @@
 
             <p:layoutUnit position="center">           
                 <h:form>
+                    <p:menubar>
+                        <p:menuitem value="Hoofdmenu" url="inlogGelukt.xhtml" />
+                    </p:menubar>
+                    <br />
                     Voer hieronder de gegevens in van het artikel dat u aan de database wilt toevoegen:
                     <br />
                     <br />
-                    Artikelnaam:
-                    <p:inputText id="artikelnaam" value="#{artikelBean.ditArtikel.artikelnaam}" />
+                    <h:outputText value="Artikelnaam: " />
+                    <h:inputText id="artikelnaam" value="#{artikelBean.ditArtikel.artikelnaam}" />
                     <br />
                     <br />
-                    Prijs: 
-                    <p:inputText id="artikelprijs" value="#{artikelBean.ditArtikel.artikelprijs}" />
+                    <h:outputText value="Prijs: " /> 
+                    <h:inputText id="artikelprijs" value="#{artikelBean.ditArtikel.artikelprijs}" />
                     <br />
                     <br />
-                    Voorraad:
-                    <p:inputText id="artikelvoorraad" value="#{artikelBean.ditArtikel.artikelvoorraad}" />
+                    <h:outputText value="Voorraad: " />
+                    <h:inputText id="artikelvoorraad" value="#{artikelBean.ditArtikel.artikelvoorraad}" />
                     <br />
                     <br />
-                    <p:commandButton action="#{artikelBean.maakNieuwArtikel()}" 
-                                     value="Voeg dit artikel toe" 
-                                     ajax="false" />
+                    <h:commandButton action="#{artikelBean.maakNieuwArtikel}" 
+                                     value="Voeg dit artikel toe" />
                 </h:form>
-                <br />
             </p:layoutUnit>
         </p:layout>
     </h:body>
