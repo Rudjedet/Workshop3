@@ -4,56 +4,62 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    
+
     <h:head>
         <title>De Mummiefabriek - artikelen</title>
     </h:head>
     <h:body>
         <p:layout fullPage="true">
 
-            <p:layoutUnit position="north" size="80" resizable="true" closable="true" collapsible="true">
-                <!--<h2>De Mummiefabriek</h2>-->
+            <p:layoutUnit position="north" size="120" resizable="true" closable="true" collapsible="true">
+                DE MUMMIEFABRIEK
+                <br />
+                <br />
                 <h:form>
-                <p:menubar>
-                    <p:menuitem value="De Mummiefabriek" url="inlogGelukt.xhtml" />
-                </p:menubar>
+                    <p:menubar>
+                        <p:menuitem value="Artikelen" url="artikelen.xhtml" />
+                        <p:menuitem value="Klanten" url="klantaccounts.xhtml" />
+                        <p:menuitem value="Bestellingen" />
+                        <p:menuitem value="Adressen" url="klantadres.xhtml" />
+                        <p:menuitem value="Logout" action="#{login.logout()}" ajax="false" />
+                    </p:menubar>
                 </h:form>
             </p:layoutUnit>
 
             <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
                 © 2016 Khufu &amp; Dochters
             </p:layoutUnit>
-            
+
             <p:layoutUnit position="center">
                 <h:form>
-                <p:dataTable value="#{artikelBean.artikelLijst}" var="a">
-                    <p:column>
-                        <f:facet name="header">Artikelnummer</f:facet>
-                    #{a.artikelId}
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">Omschrijving</f:facet>
-                    #{a.artikelnaam}
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">Prijs</f:facet>
-                        &euro; #{a.artikelprijs}
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">Voorraad</f:facet>
-                        #{a.artikelvoorraad} stuks
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">Handeling</f:facet>
-                        <p:commandButton action="#{artikelBean.gaNaarEditArtikel(a)}" 
-                                         value="aanpassen" 
-                                         ajax="false" />
-                        <br />
-                        <p:commandButton action="#{artikelBean.verwijderArtikel(a)}" 
-                                         value="verwijderen" 
-                                         ajax="false" />
-                    </p:column>
-                </p:dataTable>
+                    <p:dataTable value="#{artikelBean.artikelLijst}" var="a">
+                        <p:column>
+                            <f:facet name="header">Artikelnummer</f:facet>
+                                #{a.artikelId}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Omschrijving</f:facet>
+                                #{a.artikelnaam}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Prijs</f:facet>
+                            &euro; #{a.artikelprijs}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Voorraad</f:facet>
+                            #{a.artikelvoorraad} stuks
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Handeling</f:facet>
+                            <p:commandButton action="#{artikelBean.gaNaarEditArtikel(a)}" 
+                                             value="aanpassen" 
+                                             ajax="false" />
+                            <br />
+                            <p:commandButton action="#{artikelBean.verwijderArtikel(a)}" 
+                                             value="verwijderen" 
+                                             ajax="false" />
+                        </p:column>
+                    </p:dataTable>
                     <br />
                     <center><p:commandButton action="nieuwartikel.xhtml?faces-redirect=true" 
                                              value="voeg een nieuw artikel toe aan de database" 

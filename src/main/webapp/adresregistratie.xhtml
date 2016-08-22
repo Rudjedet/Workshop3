@@ -8,9 +8,19 @@
     </h:head>
     <h:body>
         <p:layout fullPage="true">
-
-            <p:layoutUnit position="north" size="80" resizable="true" closable="true" collapsible="true">
-                <h2>De Mummiefabriek</h2>
+            <p:layoutUnit position="north" size="120" resizable="true" closable="true" collapsible="true">
+                DE MUMMIEFABRIEK
+                <br />
+                <br />
+                <h:form>
+                    <p:menubar>
+                        <p:menuitem value="Artikelen" url="artikelen.xhtml" />
+                        <p:menuitem value="Klanten" url="klantaccounts.xhtml" />
+                        <p:menuitem value="Bestellingen" />
+                        <p:menuitem value="Adressen" url="klantadres.xhtml" />
+                        <p:menuitem value="Logout" action="#{login.logout()}" ajax="false" />
+                    </p:menubar>
+                </h:form>
             </p:layoutUnit>
 
             <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
@@ -18,10 +28,6 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="center">
-                <p:menubar>
-                    <p:menuitem value="Hoofdmenu" url="inlogGelukt.xhtml" />
-                </p:menubar>
-                <br />
                 <p>De gegevens voor #{klantBean.dezeKlant.voornaam} #{klantBean.dezeKlant.achternaam} zijn opgeslagen.
                     <br />Het klantnummer voor deze klant is #{klantBean.dezeKlant.klantId}.
                 </p>
