@@ -67,11 +67,6 @@ public class ArtikelBean {
         setDitArtikel(artikel);
         return "editartikel.xhtml?faces-redirect=true";
     }
-    
-    public String gaNaarNieuwArtikel(Artikel artikel) {
-        setDitArtikel(artikel);
-        return "nieuwartikel.xhtml?faces-redirect=true";
-    }
       
     public String verwijderArtikel(Artikel artikel) {
         //arFacade.remove(ditArtikel);

@@ -52,7 +52,6 @@ public class Artikel implements Serializable {
    
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 999999)
     @Column(name = "artikelprijs")
     private BigDecimal artikelprijs;
     

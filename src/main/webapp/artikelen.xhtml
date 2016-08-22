@@ -44,13 +44,13 @@
                     </p:column>
                     <p:column>
                         <f:facet name="header">Handeling</f:facet>
-                        <p:commandButton action="#{artikelBean.gaNaarEditArtikel(artikel)}" value="aanpassen " ajax="false" />
+                        <p:commandButton action="#{artikelBean.gaNaarEditArtikel(a)}" value="aanpassen " ajax="false" />
                         <br />
-                        <p:commandButton action="#{artikelBean.verwijderArtikel(artikel)}" value="verwijderen" ajax="false" />
+                        <p:commandButton action="#{artikelBean.verwijderArtikel(a)}" value="verwijderen" ajax="false" />
                     </p:column>
                 </p:dataTable>
                     <br />
-                    <center><p:commandButton action="#{artikelBean.gaNaarNieuwArtikel(artikel)}" value="voeg een nieuw artikel toe aan de database" ajax="false" /></center>
+                    <center><p:commandButton action="nieuwartikel.xhtml?faces-redirect=true" value="voeg een nieuw artikel toe aan de database" ajax="false" /></center>
                 </h:form>
             </p:layoutUnit>
         </p:layout>
