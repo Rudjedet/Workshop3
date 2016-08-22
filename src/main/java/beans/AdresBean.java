@@ -65,7 +65,7 @@ public class AdresBean {
     public String maakNieuwAdres() {
         adFacade.create(ditAdres);
         adresGegevens.add(ditAdres);
-        voegAdresToeAanKlant(ditAdres);
+        voegAdresToeAanKlant(ditAdres); //! NullPointerException
         
         return "registratieGeslaagd.xhtml?faces-redirect=true";
     }
@@ -75,7 +75,7 @@ public class AdresBean {
         kA.setAdres(adres);
         kA.setKlant(dezeKlant);
         kaFacade.create(kA);
-        klantadressen.add(kA);
+        klantadressen.add(kA); //! NullPointerException
         ditAdres = new Adres();
         
         return "registratieGeslaagd.xhtml?faces-redirect=true";
