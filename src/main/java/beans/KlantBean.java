@@ -11,13 +11,11 @@ import entity.Klant;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
-import javax.persistence.OneToMany;
 import session.KlantFacade;
 
 /**
