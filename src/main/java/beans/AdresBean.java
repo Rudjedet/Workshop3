@@ -16,7 +16,6 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
-import javax.persistence.OneToMany;
 import session.AdresFacade;
 import session.AdresTypeFacade;
 import session.KlantAdresFacade;
@@ -51,7 +50,7 @@ public class AdresBean {
     public AdresBean() {
         ditAdres = new Adres();
         dezeKlant = new Klant();
-        hetAdrestype = new AdresType();
+        //hetAdrestype = new AdresType();
     }
     
     @PostConstruct
@@ -66,32 +65,40 @@ public class AdresBean {
         adFacade.create(ditAdres);
         adresGegevens.add(ditAdres);
         voegAdresToeAanKlant(ditAdres);
-        return "registratieGeslaagd";
+        return "registratieGeslaagd.xhtml?faces-redirect=true";
     }
     
     public String voegAdresToeAanKlant(Adres adres) {
         KlantAdres kA = new KlantAdres();
-        setHetAdrestype(atFacade.find(hetAdrestype.getAdrestypeId()));
-        kA.setAdrestypeIdadrestype(hetAdrestype);
+        //setHetAdrestype(atFacade.find(hetAdrestype.getAdrestypeId()));
+        //kA.setAdrestypeIdadrestype(hetAdrestype);
         //kA.setAdres(adres);
         kA.setKlant(dezeKlant);
         kaFacade.create(kA);
-        klantadressen.add(kA); //EJB exception hier ??
+        klantadressen.add(kA);
         ditAdres = new Adres();
-        hetAdrestype = new AdresType();
+        //hetAdrestype = new AdresType();
         adFacade.create(ditAdres);
         adresGegevens.add(ditAdres);
         
-        return "registratieGeslaagd";
+        return "registratieGeslaagd.xhtml?faces-redirect=true";
     }
     
     public void leesAlleAdressen() {
         setAdresGegevens(adFacade.findAll());
     }
     
-    public void editAdres() {
+    public String gaNaarEditAdres(Adres adres) {
+        setDitAdres(adres);
+        
+        return "editadres.xhtml?faces-redirect=true";
+    }
+    
+    public String editAdres() {
         adFacade.edit(ditAdres);
         ditAdres = new Adres();
+        
+        return "succes.xhtml?faces-redirect=true";
     }
     
 //    public String gaNaarEditAdresGegevens(Adres adres) {
@@ -103,7 +110,7 @@ public class AdresBean {
         adFacade.remove(adres);
         adresGegevens.remove(adres);
         
-        return "succes";
+        return "succes.xhtml?faces-redirect=true";
     }
 
     /*
