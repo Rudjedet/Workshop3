@@ -58,6 +58,7 @@ public class AdresBean {
         adresGegevens = new ArrayList<>();
         leesAlleAdressen();
     }
+    
     /*
     * CRUD methodes
     */
@@ -65,21 +66,17 @@ public class AdresBean {
         adFacade.create(ditAdres);
         adresGegevens.add(ditAdres);
         voegAdresToeAanKlant(ditAdres);
+        
         return "registratieGeslaagd.xhtml?faces-redirect=true";
     }
     
     public String voegAdresToeAanKlant(Adres adres) {
         KlantAdres kA = new KlantAdres();
-        //setHetAdrestype(atFacade.find(hetAdrestype.getAdrestypeId()));
-        //kA.setAdrestypeIdadrestype(hetAdrestype);
-        //kA.setAdres(adres);
+        kA.setAdres(adres);
         kA.setKlant(dezeKlant);
         kaFacade.create(kA);
         klantadressen.add(kA);
         ditAdres = new Adres();
-        //hetAdrestype = new AdresType();
-        adFacade.create(ditAdres);
-        adresGegevens.add(ditAdres);
         
         return "registratieGeslaagd.xhtml?faces-redirect=true";
     }

@@ -7,13 +7,18 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+//import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.JoinTable;
+//import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -69,6 +74,7 @@ public class Adres implements Serializable {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "adres")
     private Collection<KlantAdres> klantAdresCollection;
+    //private Set<Klant> klantAdressen;
 
     public Adres() {
     }
@@ -124,6 +130,19 @@ public class Adres implements Serializable {
     public void setWoonplaats(String woonplaats) {
         this.woonplaats = woonplaats;
     }
+    
+//    public void setKlantAdressen(Set<Klant> klantAdressen) {
+//        this.klantAdressen = klantAdressen;
+//    }
+//    
+//    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+//            fetch = FetchType.EAGER)
+//    @JoinTable(table = @Table (name = "klant_adres"), //TODO: error "<any>  is not an annotation type"
+//            joinColumns = {@JoinColumn(name="adres_id")},
+//            inverseJoinColumns = {@JoinColumn(name="klant_id")})
+//    public Set<Klant> getKlantAdressen() {
+//        return klantAdressen;
+//    }
 
     public Collection<KlantAdres> getKlantAdresCollection() {
         return klantAdresCollection;

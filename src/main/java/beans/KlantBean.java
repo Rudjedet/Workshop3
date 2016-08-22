@@ -53,7 +53,7 @@ public class KlantBean implements Serializable {
     public String maakNieuweKlant() {
         kFacade.create(dezeKlant);
         klantGegevens.add(dezeKlant);
-        return "adresregistratie";
+        return "adresregistratie.xhtml?faces-redirect=true";
     }
     
     public void leesAlleKlanten() {
@@ -68,7 +68,7 @@ public class KlantBean implements Serializable {
         kFacade.edit(dezeKlant);
         dezeKlant = new Klant();
         
-        return "succes";
+        return "succes.xhtml?faces-redirect=true";
     }
     
     public String gaNaarEditKlantGegevens(Klant klant) {
