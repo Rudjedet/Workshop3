@@ -49,8 +49,9 @@
                     <h:inputText id="adrestype" value="#{adresBean.hetAdrestype.adrestypeId}" />
                     <br />
                     <br />
-                    <h:commandButton action="#{adresBean.voegAdresToeAanKlant(adres)}" 
-                                     value="Registreer" />
+                    <p:commandButton action="#{adresBean.voegAdresToeAanKlant(adres)}" 
+                                     value="Registreer" 
+                                     ajax="false" />
                 </h:form>
                 <br />
             </p:layoutUnit>

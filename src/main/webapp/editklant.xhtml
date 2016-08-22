@@ -22,7 +22,29 @@
                     <p:menuitem value="Hoofdmenu" url="inlogGelukt.xhtml" />
                 </p:menubar>
                 <br />
-                [ content ]
+                <h:form>
+                    <br />
+                    Voer hier de nieuwe gegevens in van klant 
+                    #{klantBean.dezeKlant.klantId}: #{klantBean.dezeKlant.voornaam} 
+                    #{klantBean.dezeKlant.achternaam}.              
+                    <br />
+                    <br />
+                    <h:outputText value="Voornaam: " />
+                    <h:inputText id="voornaam" value="#{klantBean.dezeKlant.voornaam}" />
+                    <br />
+                    <br />
+                    <h:outputText value="Achternaam: " /> 
+                    <h:inputText id="achternaam" value="#{klantBean.dezeKlant.achternaam}" />
+                    <br />
+                    <br />
+                    <h:outputText value="E-mail adres: " />
+                    <h:inputText id="emailadres" value="#{klantBean.dezeKlant.emailadres}" />
+                    <br />
+                    <br />
+                    <p:commandButton action="#{klantBean.editKlant}" 
+                                     value="Wijzigingen doorvoeren" 
+                                     ajax="false" />
+                </h:form>
             </p:layoutUnit>
         </p:layout>
     </h:body>

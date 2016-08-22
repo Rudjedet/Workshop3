@@ -94,16 +94,16 @@ public class AdresBean {
         ditAdres = new Adres();
     }
     
-    public String gaNaarEditAdresGegevens(Adres adres) {
-        setDitAdres(adres);
-        return "editadres";
-    }
+//    public String gaNaarEditAdresGegevens(Adres adres) {
+//        setDitAdres(adres);
+//        return "editadres";
+//    }
     
-    @OneToMany(mappedBy="klant", orphanRemoval=true)
-    public void verwijderAdres() {
-        adFacade.remove(ditAdres);
-        adresGegevens.remove(ditAdres);
-        //DONE: verwijdert van gekoppelde dezeKlant met orphanRemoval - needs testing
+    public String verwijderAdres(Adres adres) {
+        adFacade.remove(adres);
+        adresGegevens.remove(adres);
+        
+        return "succes";
     }
 
     /*

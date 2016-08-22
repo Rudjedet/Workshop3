@@ -43,9 +43,13 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">Handeling</f:facet>
-                            <p:commandButton action="#{klantBean.gaNaarEditKlantGegevens(klant)}" value="aanpassen " ajax="false" />
+                            <p:commandButton action="#{klantBean.gaNaarEditKlantGegevens(k)}" 
+                                             value="aanpassen" 
+                                             ajax="false" />
                             <br />
-                            <p:commandButton action="#{klantBean.verwijderKlant()}" value="verwijderen" />
+                            <p:commandButton action="#{klantBean.verwijderKlant(k)}" 
+                                             value="verwijderen" 
+                                             ajax="false" />
                         </p:column>
                     </p:dataTable>
                 </h:form>

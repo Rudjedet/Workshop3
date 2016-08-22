@@ -11,6 +11,7 @@ import entity.Klant;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -65,9 +66,11 @@ public class KlantBean implements Serializable {
         return "klantaccounts.xhtml?faces-redirect=true";
     }
     
-    public void editKlant() {
+    public String editKlant() {
         kFacade.edit(dezeKlant);
         dezeKlant = new Klant();
+        
+        return "succes";
     }
     
     public String gaNaarEditKlantGegevens(Klant klant) {
@@ -75,10 +78,25 @@ public class KlantBean implements Serializable {
         return "editklant.xhtml?faces-redirect=true";
     }
     
-    @OneToMany(mappedBy="adres, bestelling", orphanRemoval=true)
-    public void verwijderKlant() {
-        kFacade.remove(dezeKlant);
-        //DONE: verwijder orphaned adressen en bestellingen - needs testing
+
+    public String verwijderKlant(Klant klant) {
+        kFacade.remove(klant);
+        klantGegevens.remove(klant);
+        
+//        int kGSize = klantGegevens.size();
+//        int index = -1;
+//        
+//        for (int i = 0; i < kGSize; i++) {
+//            if(Objects.equals(klantGegevens.get(i).getKlantId(), klant.getKlantId())) {
+//                index = i;
+//            }
+//        }
+//        if (index != 1) {
+//            kFacade.remove(klantGegevens.get(index));
+//            klantGegevens.remove(index);
+//        }
+        
+        return "succes.xhtml?faces-redirect=true";
     } 
     
     /*
