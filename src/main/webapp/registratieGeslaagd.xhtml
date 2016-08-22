@@ -27,7 +27,7 @@
                     <br />Het klantnummer voor deze klant is #{klantBean.dezeKlant.klantId}.
                     <br />Het adresnummer voor deze klant is #{adresBean.ditAdres.adresId}.
                 </p>
-                <h:commandButton action="#{klantBean.gaNaarKlantGegevens()}" value="alle klantgegevens" />
+                <h:commandButton action="klantaccounts.xhtml?faces-redirect=true" value="alle klantgegevens" />
                 <br />
             </p:layoutUnit>
         </p:layout>

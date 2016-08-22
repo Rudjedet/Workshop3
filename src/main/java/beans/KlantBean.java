@@ -60,10 +60,6 @@ public class KlantBean implements Serializable {
         setKlantGegevens(kFacade.findAll());
     }
     
-    public String gaNaarKlantGegevens() {
-        return "klantaccounts.xhtml?faces-redirect=true";
-    }
-    
     public String editKlant() {
         kFacade.edit(dezeKlant);
         dezeKlant = new Klant();
