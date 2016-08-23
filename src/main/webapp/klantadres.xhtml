@@ -51,13 +51,18 @@
                                 #{a.woonplaats}
                         </p:column>
                         <p:column>
-                            <f:facet name="header">Handeling</f:facet>
-                            <p:commandButton action="#{adresBean.gaNaarEditAdres(a)}"
+                            <f:facet name="header">Aanpassen</f:facet>
+                            <center><p:commandButton action="#{adresBean.gaNaarEditAdres(a)}"
                                              value="aanpassen"
                                              ajax="false" />
-                            <p:commandButton action="#{adresBean.verwijderAdres(a)}"
+                            </center>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Verwijderen</f:facet>
+                            <center><p:commandButton action="#{adresBean.verwijderAdres(a)}"
                                              value="verwijderen"
                                              ajax="false" />
+                            </center>
                         </p:column>
                     </p:dataTable>
 <!--                    <center><p:commandButton action="adresregistratie.xhtml?faces-redirect=true" 

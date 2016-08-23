@@ -45,8 +45,14 @@
                     <h:inputText id="artikelvoorraad" value="#{artikelBean.ditArtikel.artikelvoorraad}" />
                     <br />
                     <br />
-                    <h:commandButton action="#{artikelBean.maakNieuwArtikel}" 
-                                     value="Voeg dit artikel toe" />
+                    <p:panelGrid columns="2">
+                    <p:commandButton action="#{artikelBean.maakNieuwArtikel}" 
+                                     value="Voeg dit artikel toe" 
+                                     ajax="false" />
+                    <p:commandButton action="artikelen.xhtml?faces-redirect=true"
+                                     value="Terug"
+                                     ajax="false" />
+                    </p:panelGrid>
                 </h:form>
             </p:layoutUnit>
         </p:layout>

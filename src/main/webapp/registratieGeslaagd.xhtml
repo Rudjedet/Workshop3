@@ -56,15 +56,21 @@
                                 #{a.woonplaats}
                         </p:column>
                         <p:column>
-                            <f:facet name="header">Handeling</f:facet>
-                            <p:commandButton action="#{adresBean.voegAdresToeAanKlant(a)}"
+                            <f:facet name="header">Bevestigen</f:facet>
+                            <center><p:commandButton action="#{adresBean.voegAdresToeAanKlant(a)}"
                                              value="bevestig dit adres als klantadres"
                                              ajax="false" />
+                            </center>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Terug</f:facet>
+                            <center><p:commandButton action="klantaccounts.xhtml?faces-redirect=true"
+                                                     value="naar klantgegevens"
+                                                     ajax="false" />
+                            </center>
                         </p:column>
                     </p:dataTable>
                 </h:form>
-                <br />
-                <h:commandButton action="klantaccounts.xhtml?faces-redirect=true" value="alle klantgegevens" />
             </p:layoutUnit>
         </p:layout>
     </h:body>

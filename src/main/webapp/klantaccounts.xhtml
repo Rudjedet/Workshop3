@@ -49,13 +49,18 @@
                                 #{k.emailadres}
                         </p:column>
                         <p:column>
-                            <f:facet name="header">Handeling</f:facet>
-                            <p:commandButton action="#{klantBean.gaNaarEditKlantGegevens(k)}" 
+                            <f:facet name="header">Aanpassen</f:facet>
+                            <center><p:commandButton action="#{klantBean.gaNaarEditKlantGegevens(k)}" 
                                              value="aanpassen" 
                                              ajax="false" />
-                            <p:commandButton action="#{klantBean.verwijderKlant(k)}" 
+                            </center>
+                        </p:column>
+                        <p:column> 
+                            <f:facet name="header">Verwijderen</f:facet>
+                            <center><p:commandButton action="#{klantBean.verwijderKlant(k)}" 
                                              value="verwijderen" 
                                              ajax="false" />
+                            </center>
                         </p:column>
                     </p:dataTable>
                     <br />
