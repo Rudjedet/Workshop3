@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>De Mummiefabriek - registratie voltooid</title>
     </h:head>
@@ -34,8 +35,36 @@
                     <br />Het klantnummer voor deze klant is #{klantBean.dezeKlant.klantId}.
                     <br />Het adresnummer voor deze klant is #{adresBean.ditAdres.adresId}.
                 </p>
-                <h:commandButton action="klantaccounts.xhtml?faces-redirect=true" value="alle klantgegevens" />
+                 <h:form>                
+                    <br />
+                    <br />
+                    <p:dataTable value="#{adresBean.ditAdres}" var="a">
+                        <p:column>
+                            <f:facet name="header">Straatnaam</f:facet>
+                                #{a.straatnaam}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Huisnummer</f:facet>
+                                #{a.huisnummer}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Postcode</f:facet>
+                                #{a.postcode}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Woonplaats</f:facet>
+                                #{a.woonplaats}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Handeling</f:facet>
+                            <p:commandButton action="#{adresBean.voegAdresToeAanKlant(a)}"
+                                             value="bevestig dit adres als klantadres"
+                                             ajax="false" />
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
                 <br />
+                <h:commandButton action="klantaccounts.xhtml?faces-redirect=true" value="alle klantgegevens" />
             </p:layoutUnit>
         </p:layout>
     </h:body>

@@ -53,6 +53,7 @@ public class KlantBean implements Serializable {
     public String maakNieuweKlant() {
         kFacade.create(dezeKlant);
         klantGegevens.add(dezeKlant);
+        
         return "adresregistratie.xhtml?faces-redirect=true";
     }
     
