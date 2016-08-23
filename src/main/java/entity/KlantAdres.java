@@ -45,7 +45,7 @@ public class KlantAdres implements Serializable {
     private Adres adres;
     
     @JoinColumn(name = "adrestype_idadrestype", referencedColumnName = "adrestype_id")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private AdresType adrestypeIdadrestype;
     
     @JoinColumn(name = "klant_idklant", referencedColumnName = "klant_id")
