@@ -35,6 +35,11 @@ public class AdresType implements Serializable {
     @NotNull
     @Column(name = "adrestype_id")
     private Integer adrestypeId;
+    
+    @Basic(optional = true)
+    @Column(name = "adrestype_naam")
+    private String adrestypeNaam;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "adrestypeIdadrestype")
     private Collection<KlantAdres> klantAdresCollection;
 

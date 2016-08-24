@@ -100,14 +100,14 @@ public class BestellingBean {
     
     public void berekenTotaalBedrag() {
         List<BesteldArtikel> artikelenInDezeBestelling = getBesteldeArtikelen();
-        double totaalBedrag = 0;
+        double bedrag = 0;
         
         for(BesteldArtikel bA : artikelenInDezeBestelling) {
-            //totaalBedrag += bA.getBesteldArtikelId().getArtikelprijs() * bA.getAantal();
+            //totaalBedrag += bA.getBesteldArtikelId().(ditArtikel.getArtikelprijs()) * bA.getAantal();
             //^cannot find getArtikelprijs methode???
         }
         
-        setTotaalBedrag(totaalBedrag);
+        setTotaalBedrag(bedrag);
     }
     
     /*
