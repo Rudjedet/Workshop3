@@ -5,9 +5,7 @@
  */
 package beans;
 
-//import entity.Adres;
 import entity.Klant;
-//import entity.KlantAdres;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +28,6 @@ public class KlantBean implements Serializable {
     
     private Klant dezeKlant;
     private List<Klant> klantGegevens;
-    //private Adres ditAdres;
-    //private KlantAdres klad;
-    //private List<KlantAdres> kladLijst;
     
     @EJB
     private KlantFacade kFacade;

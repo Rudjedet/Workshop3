@@ -30,7 +30,7 @@ import session.BestellingFacade;
 public class BestellingBean {
     
     private Bestelling dezeBestelling;
-    //private Artikel ditArtikel;
+    private Integer klantId;
     private List<Bestelling> alleBestellingen;
     private List<BesteldArtikel> besteldeArtikelen;
     private Double totaalBedrag;
@@ -59,13 +59,18 @@ public class BestellingBean {
         alleBestellingen.add(dezeBestelling);
     }
     
-    public void voegArtikelToeAanBestelling(Artikel artikel) {
+    public String voegArtikelToeAanBestelling(Artikel artikel) {
         BesteldArtikel bA = new BesteldArtikel();
+        bA.setAantal(1);
         bA.setArtikel(artikel);
         bA.setBestelling(dezeBestelling);
-        baFacade.create(bA);
-        besteldeArtikelen.add(bA);
-        dezeBestelling = new Bestelling();
+        setDezeBestelling(bFacade.find(dezeBestelling.getBestellingId()));
+        //baFacade.create(bA);
+        //besteldeArtikelen.add(bA);
+        //dezeBestelling = new Bestelling();
+        maakNieuweBestelling();
+        
+        return "succes.xhtml?faces-redirect=true";
     }
     
     public void verwijderUitBesteldeArtikelen(BesteldArtikel bar) {
@@ -81,9 +86,18 @@ public class BestellingBean {
         setAlleBestellingen(bFacade.findAll());
     }
     
-    //TODO: leesBestellingByKlantId() {}
+    public String gaNaarEditDezeBestelling(Bestelling bestelling) {
+        setDezeBestelling(bestelling);
+                
+        return "editbestelling.xhtml?faces-redirect=true";        
+    }
     
-    //TODO: leesBesteldeArtikelenInBestelling() {}
+    //TODO: leesBestellingByKlantId() {
+    //    setKlantId(klantId);
+    //    setAlleBestellingen(bFacade.findBestellingByKlantId)
+    //}
+    
+    //TODO: public void leesBesteldeArtikelenInBestelling() {}
     //methode die alle artikelen in een bestelling weergeeft als een lijst 
     //die vervolgens in servlet gebruikt wordt
     
@@ -92,8 +106,7 @@ public class BestellingBean {
         dezeBestelling = new Bestelling();
     }
     
-    @OneToMany(mappedBy="klant", orphanRemoval=true)
-    public void verwijderBestelling() {
+    public void verwijderBestelling(Bestelling bestelling) {
         bFacade.remove(dezeBestelling);
         alleBestellingen.remove(dezeBestelling);
     }
@@ -143,5 +156,13 @@ public class BestellingBean {
 
     public void setTotaalBedrag(Double totaalBedrag) {
         this.totaalBedrag = totaalBedrag;
+    }
+
+    public Integer getKlantId() {
+        return klantId;
+    }
+
+    public void setKlantId(Integer klantId) {
+        this.klantId = klantId;
     }
 }

@@ -50,6 +50,13 @@
                             #{a.artikelvoorraad} stuks
                         </p:column>
                         <p:column>
+                            <f:facet name="header">Bestelling</f:facet>
+                            <center><p:commandButton action="#{bestellingBean.voegArtikelToeAanBestelling(a)}"
+                                                     value="toevoegen"
+                                                     ajax="false" />
+                            </center>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">Aanpassen</f:facet>
                             <center><p:commandButton action="#{artikelBean.gaNaarEditArtikel(a)}" 
                                                      value="aanpassen" 

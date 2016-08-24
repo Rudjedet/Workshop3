@@ -40,8 +40,8 @@ public class AdresBean {
     
     @EJB
     private AdresFacade adFacade;
-    @EJB
-    private AdresTypeFacade atFacade;
+    //@EJB
+    //private AdresTypeFacade atFacade;
     @EJB
     private KlantFacade kFacade;
     @EJB
@@ -73,9 +73,10 @@ public class AdresBean {
     public String voegAdresToeAanKlant(Adres adres) {
         KlantAdres kA = new KlantAdres();
         kA.setAdres(adres);
+        setDezeKlant(kFacade.find(dezeKlant.getKlantId())); //Nu geeft dit weer een null PK terug??
         kA.setKlant(dezeKlant);
+        
         kaFacade.create(kA);
-        //NullPointerException in this method in any of the above three lines
         klantadressen.add(kA); 
         ditAdres = new Adres();
         
